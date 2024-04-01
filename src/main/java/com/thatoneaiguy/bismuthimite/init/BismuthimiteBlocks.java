@@ -1,6 +1,7 @@
 package com.thatoneaiguy.bismuthimite.init;
 
 import com.thatoneaiguy.bismuthimite.Bismuthimite;
+import com.thatoneaiguy.bismuthimite.block.Kiln;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -17,7 +18,7 @@ import net.minecraft.util.registry.Registry;
 public class BismuthimiteBlocks {
 
 	public static final Block KILN = registerBlock("kiln",
-		new Block(FabricBlockSettings.of(Material.METAL).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), BismuthimiteItems.BISMUTHIMITE);
+		new Kiln(FabricBlockSettings.of(Material.METAL).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), BismuthimiteItems.BISMUTHIMITE);
 
 	private static Block registerBlock(String name, Block block, ItemGroup tab) {
 		registerBlockItem(name, block, tab);

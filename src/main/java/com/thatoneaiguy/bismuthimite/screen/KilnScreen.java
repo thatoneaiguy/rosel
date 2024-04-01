@@ -19,7 +19,7 @@ public class KilnScreen extends HandledScreen<KilnScreenHandler> {
 	@Override
 	protected void init() {
 		super.init();
-		titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
+		//titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
 	}
 
 	@Override

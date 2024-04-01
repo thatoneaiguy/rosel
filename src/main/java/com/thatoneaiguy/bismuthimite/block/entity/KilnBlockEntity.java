@@ -6,7 +6,6 @@ import com.thatoneaiguy.bismuthimite.init.ImplementedInventory;
 import com.thatoneaiguy.bismuthimite.screen.KilnScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -65,7 +64,7 @@ public class KilnBlockEntity extends BlockEntity implements NamedScreenHandlerFa
 			return;
 		}
 
-		if(hasRecipie(entity)) {
+		if(hasRecipe(entity)) {
 			entity.progress++;
 			markDirty(world, blockPos, state);
 			if(entity.progress >= entity.maxProgress) {
@@ -85,14 +84,16 @@ public class KilnBlockEntity extends BlockEntity implements NamedScreenHandlerFa
 			inventory.setStack(i, entity.getStack(i));
 		}
 
-		if(hasRecipie(entity)) {
+		if(hasRecipe(entity)) {
 			entity.removeStack(1, 1);
 			entity.setStack(2, new ItemStack(BismuthimiteItems.BISMUTH, entity.getStack(2).getCount() + 1));
+
+			entity.resetProgress();
 		}
 
 	}
 
-	private static boolean hasRecipie(KilnBlockEntity entity) {
+	private static boolean hasRecipe(KilnBlockEntity entity) {
 		SimpleInventory inventory = new SimpleInventory(entity.size());
 		for (int i = 0; i < entity.size(); i++) {
 			inventory.setStack(i, entity.getStack(i));
@@ -100,15 +101,15 @@ public class KilnBlockEntity extends BlockEntity implements NamedScreenHandlerFa
 
 		boolean hasCopperInFirstSlot = entity.getStack(1).getItem() == Items.COPPER_INGOT;
 
-		return hasCopperInFirstSlot && canInsertAmountIntoOutputSlot(inventory, 1) && canInsertItemIntoOutputSlot(inventory, BismuthimiteItems.BISMUTH);
+		return hasCopperInFirstSlot && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, BismuthimiteItems.BISMUTH);
 	}
 
 	private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, Item output) {
 		return inventory.getStack(2).getItem() == output || inventory.getStack(2).isEmpty();
 	}
 
-	private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory, int count) {
-		return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount() + count;
+	private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
+		return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
 	}
 
 	@Override
