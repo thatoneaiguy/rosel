@@ -2,10 +2,10 @@
 	"schema_version": 1,
 	"quilt_loader": {
 		"group": "com.thatoneaiguy",
-		"id": "bismuthimite",
+		"id": "rosel",
 		"version": "${version}",
 		"metadata": {
-			"name": "Bismuthimite",
+			"name": "rosel",
 			"description": "A short description of your mod.",
 			"contributors": {
 				"thatoneaiguy": "Owner",
@@ -13,12 +13,12 @@
 			},
 			"contact": {
 			},
-			"icon": "assets/example_mod/icon.png"
+			"icon": "assets/rosel/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "com.thatoneaiguy.bismuthimite.Bismuthimite",
-			"client_init": "com.thatoneaiguy.bismuthimite.BismuthimiteClient"
+			"init": "com.thatoneaiguy.rosel.Rosel",
+			"client_init": "com.thatoneaiguy.rosel.RoselClient"
 		},
 		"depends": [
 			{
@@ -35,5 +35,5 @@
 			}
 		]
 	},
-	"mixin": "Bismuthimite.mixins.json"
+	"mixin": "rosel.mixins.json"
 }

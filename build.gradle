@@ -8,16 +8,13 @@ version = "${project.version}+${libs.versions.minecraft.get()}"
 group = project.maven_group
 
 repositories {
-	exclusiveContent {
-		forRepository {
-			maven {
-				name = "Modrinth"
-				url = "https://api.modrinth.com/maven"
-			}
-		}
-		filter {
-			includeGroup "maven.modrinth"
-		}
+	maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
+	maven {
+		name = "Ladysnake Libs"
+		url = 'https://maven.ladysnake.org/releases'
 	}
 }
 
@@ -29,7 +26,8 @@ dependencies {
 
 	modImplementation libs.quilted.fabric.api
 
-	//include modImplementation("maven.modrinth:enchancement:1.19-19")
+	modImplementation "dev.emi:trinkets:${trinkets_version}"
+
 }
 
 processResources {
