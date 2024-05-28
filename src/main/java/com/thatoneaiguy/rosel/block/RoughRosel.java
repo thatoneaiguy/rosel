@@ -1,6 +1,6 @@
 package com.thatoneaiguy.rosel.block;
 
-import com.thatoneaiguy.rosel.block.entity.RoselBlockEntity;
+import com.thatoneaiguy.rosel.block.entity.RoughRoselBlockEntity;
 import com.thatoneaiguy.rosel.init.RoselBlockEntities;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderType;
@@ -13,15 +13,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class Rosel extends BlockWithEntity implements BlockEntityProvider {
-	protected Rosel(Settings settings) {
+public class RoughRosel extends BlockWithEntity implements BlockEntityProvider {
+	public RoughRosel(Settings settings) {
 		super(settings);
 	}
 
 	@Nullable
 	@Override
 	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-		return new RoselBlockEntity(pos, state);
+		return new RoughRoselBlockEntity(pos, state);
 	}
 
 	@Override
@@ -32,6 +32,6 @@ public class Rosel extends BlockWithEntity implements BlockEntityProvider {
 	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-		return checkType(type, RoselBlockEntities.ROSEL_BLOCK, RoselBlockEntity::tick);
+		return checkType(type, RoselBlockEntities.ROSEL_BLOCK, RoughRoselBlockEntity::tick);
 	}
 }

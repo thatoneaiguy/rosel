@@ -14,6 +14,7 @@ public class RoselEntities {
 		Registry.ENTITY_TYPE,
 		new Identifier(Rosel.MODID, "disc"),
 		FabricEntityTypeBuilder.<DiscEntity>create(SpawnGroup.MISC, DiscEntity::new)
+			.spawnGroup(SpawnGroup.MISC)
 			.dimensions(EntityDimensions.fixed(0.5F, 0.5F))
 			.fireImmune()
 			.trackRangeBlocks(4).trackedUpdateRate(10)

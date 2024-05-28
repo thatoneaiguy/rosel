@@ -25,7 +25,7 @@ public class BasinBlockEntity extends BlockEntity {
 		if ( random <= 0.1) {
 			if (world.getBlockState(pos.down(one)).isOf(Blocks.SOUL_CAMPFIRE)) {
 				if (world.getBlockState(pos.up(one)).isOf(Blocks.POINTED_DRIPSTONE)) {
-					if (world.getBlockState(pos.up(two)).isOf(RoselBlocks.SUS_COMPOUND)) {
+					if (world.getBlockState(pos.up(two)).isOf(RoselBlocks.ROUGH_ROSEL)) {
 						if (AGE >= 600) {
 							System.out.println("functgion");
 							if ( !world.isClient ) {

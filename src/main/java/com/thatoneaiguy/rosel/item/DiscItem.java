@@ -28,6 +28,7 @@ public class DiscItem extends Item {
 
 		if (!world.isClient) {
 			DiscEntity discEntity = new DiscEntity(world, user, lookVector.x, lookVector.y, lookVector.z);
+			discEntity.setOwner(user);
 			discEntity.setPosition(x, y, z);
 			world.spawnEntity(discEntity);
 		}

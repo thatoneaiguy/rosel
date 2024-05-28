@@ -9,10 +9,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.EntityRenderer;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.ProjectileEntityRenderer;
+import net.minecraft.client.render.entity.*;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.render.entity.model.TridentEntityModel;
 import net.minecraft.client.render.item.ItemRenderer;
@@ -27,15 +24,20 @@ import net.minecraft.util.math.Vec3f;
 
 @Environment(EnvType.CLIENT)
 public class DiscRenderer extends EntityRenderer<DiscEntity> {
-	public static final Identifier TEXTURE = new Identifier("textures/entity/disc.png");
-	private final DiscModel model;
+	public static final Identifier TEXTURE = new Identifier(Rosel.MODID, "textures/entity/tets.png");
+	//private final DiscModel model;
 
 	public DiscRenderer(EntityRendererFactory.Context context) {
 		super(context);
-		this.model = new DiscModel(context.getPart(RoselClient.MODEL_DISC_LAYER));
+		//this.model = new DiscModel(context.getPart(RoselClient.MODEL_DISC_LAYER));
 	}
 
-	public void render(DiscEntity discEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+	@Override
+	public Identifier getTexture(DiscEntity entity) {
+		return TEXTURE;
+	}
+
+	/*public void render(DiscEntity discEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
 		matrixStack.push();
 		matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(MathHelper.lerp(g, discEntity.prevYaw, discEntity.getYaw()) - 90.0F));
 		matrixStack.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(MathHelper.lerp(g, discEntity.prevPitch, discEntity.getPitch()) + 90.0F));
@@ -47,5 +49,5 @@ public class DiscRenderer extends EntityRenderer<DiscEntity> {
 
 	public Identifier getTexture(DiscEntity discEntity) {
 		return TEXTURE;
-	}
+	}*/
 }

@@ -2,6 +2,7 @@ package com.thatoneaiguy.rosel.init;
 
 import com.thatoneaiguy.rosel.Rosel;
 import com.thatoneaiguy.rosel.block.Basin;
+import com.thatoneaiguy.rosel.block.RoughRosel;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -18,11 +19,11 @@ public class RoselBlocks {
 	public static final Block BASIN = registerBlock("basin",
 		new Basin(FabricBlockSettings.of(Material.METAL).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), RoselItems.ROSEL_GROUP);
 
-	public static final Block SUS_COMPOUND = registerBlock("sus_compound",
-		new Basin(FabricBlockSettings.of(Material.METAL).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), RoselItems.ROSEL_GROUP);
+	public static final Block ROUGH_ROSEL = registerBlock("rough_rosel",
+		new RoughRosel(FabricBlockSettings.of(Material.METAL).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), RoselItems.ROSEL_GROUP);
 
-	public static final Block ROSEL_BLOCK = registerBlock("rosel_block",
-		new Basin(FabricBlockSettings.of(Material.METAL).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), RoselItems.ROSEL_GROUP);
+	public static final Block PERFECT_ROSEL = registerBlock("perfect_rosel",
+		new Block(FabricBlockSettings.of(Material.METAL).requiresTool().strength(50.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), RoselItems.ROSEL_GROUP);
 
 	private static Block registerBlock(String name, Block block, ItemGroup tab) {
 		registerBlockItem(name, block, tab);

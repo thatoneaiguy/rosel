@@ -3,10 +3,11 @@
   "minVersion": "0.8",
   "package": "com.thatoneaiguy.rosel.mixin",
   "compatibilityLevel": "JAVA_17",
-  "mixins":[
-
+  "mixins": [
+    "LivingEntitiyMixin"
   ],
   "client": [
+    "ItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
