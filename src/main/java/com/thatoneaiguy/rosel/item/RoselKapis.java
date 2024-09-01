@@ -8,8 +8,9 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.Hand;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
+import xyz.amymialee.mialeemisc.util.MialeeText;
 
-public class RoselKapis extends SwordItem {
+public class RoselKapis extends BaseRoselWeapon {
 	public RoselKapis(QuiltItemSettings settings) {
 		super(ToolMaterials.NETHERITE, 3, -2.4F, settings);
 	}

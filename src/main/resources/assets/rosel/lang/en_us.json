@@ -1,0 +1,13 @@
+{
+  "item.rosel.rosel_shard" : "Rosel Shard",
+
+  "item.rosel.rosel_disc" : "Rosel Disc",
+  "item.rosel.rosel_kapis" : "Rosel Kapis",
+  "item.rosel.rosel_gauntlet" : "Rosel Kraftvoller Treffer",
+
+  "block.rosel.perfect_rosel" : "Perfect Rosel",
+  "block.rosel.rough_rosel" : "Rough Rosel",
+
+  "key.rosel.category.rosel" : "Rosel",
+  "key.rosel.swap_arm": "Swap Arms"
+}

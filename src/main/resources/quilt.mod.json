@@ -6,10 +6,11 @@
 		"version": "${version}",
 		"metadata": {
 			"name": "rosel",
-			"description": "A short description of your mod.",
+			"description": "ULTRAKILL",
 			"contributors": {
 				"thatoneaiguy": "Owner",
-				"KrimsonKolbolt": "Artist"
+				"Spirit": "Heavy Contributor",
+				"Pipobutter": "Artist"
 			},
 			"contact": {
 			},

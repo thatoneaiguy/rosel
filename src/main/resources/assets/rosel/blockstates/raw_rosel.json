@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "rosel:block/raw_rosel"
+    }
+  }
+}

@@ -18,7 +18,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class Basin extends BlockWithEntity implements BlockEntityProvider{
-
 	public static final BooleanProperty FILLED = BooleanProperty.of("filled");
 
 	@Override
@@ -30,7 +29,7 @@ public class Basin extends BlockWithEntity implements BlockEntityProvider{
 	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 		if ( world.getBlockState(pos).equals("filled") ) {
 			player.swingHand(Hand.MAIN_HAND);
-			player.giveItemStack(RoselItems.ROSEL.getDefaultStack());
+			player.giveItemStack(RoselItems.ROSEL_SHARD.getDefaultStack());
 		}
 
 		return super.onUse(state, world, pos, player, hand, hit);
