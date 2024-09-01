@@ -4,12 +4,13 @@
   "package": "com.thatoneaiguy.rosel.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "LivingEntitiyMixin"
+    "LivingEntitiyMixin",
+    "PointedDripstoneMixin"
   ],
   "client": [
     "ItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  }
 }

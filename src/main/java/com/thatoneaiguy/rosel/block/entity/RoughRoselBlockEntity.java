@@ -50,30 +50,8 @@ public class RoughRoselBlockEntity extends BlockEntity {
 			world.removeBlock(pos.offset(Direction.EAST), false);
 			world.removeBlock(pos.offset(Direction.SOUTH), false);
 			world.removeBlock(pos.offset(Direction.UP), false);
-			world.removeBlock(pos.offset(Direction.DOWN), false);
+			world.removeBlock(pos.offset(Direction.DOWN), false); // im removing this
 
-
-/*		if (random <= 0.1) {
-			if (!crafting) {
-				if (world.getBlockState(pos.down(1)).isOf(Blocks.COPPER_BLOCK)) {
-					if (world.getBlockState(pos.down(1).north(1)).isOf(Blocks.NETHERITE_BLOCK) || world.getBlockState(pos.down(1).south(1)).isOf(Blocks.NETHERITE_BLOCK)) {
-						if (world.getBlockState(pos.down(1).east(1)).isOf(Blocks.NETHERITE_BLOCK) || world.getBlockState(pos.down(1).west(1)).isOf(Blocks.NETHERITE_BLOCK)) {
-							if (world.getBlockState(pos.down(1).south(1)).isOf(Blocks.RAW_GOLD_BLOCK) || world.getBlockState(pos.down(1).north(1)).isOf(Blocks.RAW_GOLD_BLOCK)) {
-								if (world.getBlockState(pos.down(1).west(1)).isOf(Blocks.RAW_GOLD_BLOCK) || world.getBlockState(pos.down(1).east(1)).isOf(Blocks.RAW_GOLD_BLOCK)) {
-									if (AGE >= 600) {
-										System.out.println("functgion");
-										AGE = 0;
-										crafting = true;
-									} else {
-										AGE++;
-										System.out.println(AGE);
-									}
-								}
-							}
-						}
-					}
-				}
-			}*/
 			if (crafting) {
 
 			}

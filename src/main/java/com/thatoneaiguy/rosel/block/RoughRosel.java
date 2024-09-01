@@ -18,8 +18,7 @@ public class RoughRosel extends BlockWithEntity implements BlockEntityProvider {
 		super(settings);
 	}
 
-	@Nullable
-	@Override
+	@Nullable @Override
 	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
 		return new RoughRoselBlockEntity(pos, state);
 	}
@@ -29,8 +28,7 @@ public class RoughRosel extends BlockWithEntity implements BlockEntityProvider {
 		return BlockRenderType.MODEL;
 	}
 
-	@Nullable
-	@Override
+	@Nullable @Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
 		return checkType(type, RoselBlockEntities.ROSEL_BLOCK, RoughRoselBlockEntity::tick);
 	}

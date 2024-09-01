@@ -15,9 +15,7 @@ public class BasinBlockEntity extends BlockEntity {
 	public BasinBlockEntity(BlockPos pos, BlockState state) {
 		super(RoselBlockEntities.BASIN, pos, state);
 	}
-
 	public static void tick(World world, BlockPos pos, BlockState state, BasinBlockEntity entity) {
-
 		double random = Math.random();
 		int one = 1;
 		int two = 2;
@@ -27,7 +25,7 @@ public class BasinBlockEntity extends BlockEntity {
 				if (world.getBlockState(pos.up(one)).isOf(Blocks.POINTED_DRIPSTONE)) {
 					if (world.getBlockState(pos.up(two)).isOf(RoselBlocks.ROUGH_ROSEL)) {
 						if (AGE >= 600) {
-							System.out.println("functgion");
+							System.out.println("function");
 							if ( !world.isClient ) {
 								world.setBlockState(pos, state.cycle(Basin.FILLED));
 							}
@@ -41,3 +39,4 @@ public class BasinBlockEntity extends BlockEntity {
 		}
 	}
 }
+
