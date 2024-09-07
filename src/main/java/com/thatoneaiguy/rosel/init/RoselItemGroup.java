@@ -14,9 +14,9 @@ public class RoselItemGroup {
 			new Identifier(Rosel.MODID, "roselmain"))
 		.icon(() -> new ItemStack(RoselItems.ROSEL_SHARD))
 		.appendItems(stacks -> {
-			stacks.add(new ItemStack(RoselItems.ROSEL_KAPIS));
-			stacks.add(new ItemStack(RoselItems.ROSEL_DISC));
-			stacks.add(new ItemStack(RoselItems.ROSEL_GAUNTLET));
+			//stacks.add(new ItemStack(RoselItems.ROSEL_KAPIS));
+			//stacks.add(new ItemStack(RoselItems.ROSEL_DISC));
+			//stacks.add(new ItemStack(RoselItems.ROSEL_GAUNTLET));
 			stacks.add(new ItemStack(RoselItems.ROSEL_SHARD));
 		})
 		.build();

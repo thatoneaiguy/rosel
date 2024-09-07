@@ -1,27 +1,6 @@
 package com.thatoneaiguy.rosel.render;
 
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.thatoneaiguy.rosel.Rosel;
-import com.thatoneaiguy.rosel.RoselClient;
-import com.thatoneaiguy.rosel.entity.DiscEntity;
-import com.thatoneaiguy.rosel.init.RoselItems;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.*;
-import net.minecraft.client.render.entity.model.EntityModelLayers;
-import net.minecraft.client.render.entity.model.TridentEntityModel;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformation;
-import net.minecraft.client.texture.SpriteAtlasTexture;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.projectile.TridentEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3f;
-
+/*
 @Environment(EnvType.CLIENT)
 public class DiscRenderer extends EntityRenderer<DiscEntity> {
 	public static final Identifier TEXTURE = new Identifier(Rosel.MODID, "textures/entity/tets.png");
@@ -37,7 +16,8 @@ public class DiscRenderer extends EntityRenderer<DiscEntity> {
 		return TEXTURE;
 	}
 
-	/*public void render(DiscEntity discEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+	*/
+/*public void render(DiscEntity discEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
 		matrixStack.push();
 		matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(MathHelper.lerp(g, discEntity.prevYaw, discEntity.getYaw()) - 90.0F));
 		matrixStack.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(MathHelper.lerp(g, discEntity.prevPitch, discEntity.getPitch()) + 90.0F));
@@ -49,5 +29,7 @@ public class DiscRenderer extends EntityRenderer<DiscEntity> {
 
 	public Identifier getTexture(DiscEntity discEntity) {
 		return TEXTURE;
-	}*/
+	}*//*
+
 }
+*/

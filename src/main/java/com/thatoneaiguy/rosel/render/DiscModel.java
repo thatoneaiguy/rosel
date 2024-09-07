@@ -3,14 +3,13 @@ package com.thatoneaiguy.rosel.render;// Made with Blockbench 4.9.4
 // Paste this class into your mod and generate all required imports
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.thatoneaiguy.rosel.entity.DiscEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
-public class DiscModel extends EntityModel<DiscEntity> {
+/*public class DiscModel extends EntityModel<DiscEntity> {
 	private final ModelPart bone;
 	public static final Identifier TEXTURE = new Identifier("textures/entity/disc.png");
 	public DiscModel(ModelPart root) {
@@ -42,4 +41,4 @@ public class DiscModel extends EntityModel<DiscEntity> {
 
 	@Override
 	public void setAngles(DiscEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {}
-}
+}*/

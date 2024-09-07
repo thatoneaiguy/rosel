@@ -1,5 +1,7 @@
-package com.thatoneaiguy.rosel.client;
+package com.thatoneaiguy.rosel.particle;
 
+import com.thatoneaiguy.rosel.Rosel;
+import com.thatoneaiguy.rosel.RoselClient;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
@@ -11,9 +13,8 @@ import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.math.BlockPos;
 
-/*
-public class PassiveRoselDripParticle extends SpriteBillboardParticle {
-	PassiveRoselDripParticle(ClientWorld world, double x, double y, double z, Fluid fluid) {
+public class RoselDrip extends SpriteBillboardParticle {
+	RoselDrip(ClientWorld world, double x, double y, double z, Fluid fluid) {
 		super(world, x, y, z);
 		this.setBoundingBoxSpacing(0.01f, 0.01f);
 		this.gravityStrength = 0.06f;
@@ -38,18 +39,18 @@ public class PassiveRoselDripParticle extends SpriteBillboardParticle {
 		if (this.dead) {
 			return;
 		}
-		this.velocityY -= this.gravityStrength;
+		this.velocityY -= (double) this.gravityStrength;
 		this.move(this.velocityX, this.velocityY, this.velocityZ);
 		this.updateVelocity();
 		if (this.dead) {
 			return;
 		}
-		this.velocityX *= 0.98f;
-		this.velocityY *= 0.98f;
-		this.velocityZ *= 0.98f;
-		BlockPos blockPos = BlockPos.ofFloored(this.x, this.y, this.z);
+		this.velocityX *= (double) 0.98f;
+		this.velocityY *= (double) 0.98f;
+		this.velocityZ *= (double) 0.98f;
+		BlockPos blockPos = new BlockPos(this.x, this.y, this.z);
 		FluidState fluidState = this.world.getFluidState(blockPos);
-		if (this.y < (double)((float)blockPos.getY() + fluidState.getHeight(this.world, blockPos))) {
+		if (this.y < (double) ((float) blockPos.getY() + fluidState.getHeight(this.world, blockPos))) {
 			this.markDead();
 		}
 	}
@@ -63,36 +64,36 @@ public class PassiveRoselDripParticle extends SpriteBillboardParticle {
 	protected void updateVelocity() {
 	}
 
-	@Environment(value= EnvType.CLIENT)
-	public static class LandingPassiveRoselDripFactory
+	@Environment(value = EnvType.CLIENT)
+	public static class LandingFollyRedPaintDropFactory
 		implements ParticleFactory<DefaultParticleType> {
 		protected final SpriteProvider spriteProvider;
 
-		public LandingPassiveRoselDripFactory(SpriteProvider spriteProvider) {
+		public LandingFollyRedPaintDropFactory(SpriteProvider spriteProvider) {
 			this.spriteProvider = spriteProvider;
 		}
 
 		@Override
 		public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
 			Landing blockLeakParticle = new Landing(clientWorld, d, e, f, Fluids.EMPTY);
-			blockLeakParticle.setMaxAge((int)(28.0 / (Math.random() * 0.8 + 0.2)));
+			blockLeakParticle.setMaxAge((int) (28.0 / (Math.random() * 0.8 + 0.2)));
 			blockLeakParticle.setColor(1f, 0f, 0.35f);
 			blockLeakParticle.setSprite(this.spriteProvider);
 			return blockLeakParticle;
 		}
 	}
 
-	@Environment(value=EnvType.CLIENT)
-	public static class FallingPassiveRoselDripFactory implements ParticleFactory<DefaultParticleType> {
+	@Environment(value = EnvType.CLIENT)
+	public static class FallingFollyRedPaintDropFactory implements ParticleFactory<DefaultParticleType> {
 		protected final SpriteProvider spriteProvider;
 
-		public FallingPassiveRoselDripFactory(SpriteProvider spriteProvider) {
+		public FallingFollyRedPaintDropFactory(SpriteProvider spriteProvider) {
 			this.spriteProvider = spriteProvider;
 		}
 
 		@Override
 		public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
-			ContinuousFalling blockLeakParticle = new ContinuousFalling(clientWorld, d, e, f, Fluids.EMPTY, BlastClient.LANDING_FOLLY_RED_PAINT_DROP);
+			ContinuousFalling blockLeakParticle = new ContinuousFalling(clientWorld, d, e, f, Fluids.EMPTY, RoselClient.LANDING_ROSEL_DROP);
 			blockLeakParticle.gravityStrength = 0.01f;
 			blockLeakParticle.setColor(1f, 0f, 0.35f);
 			blockLeakParticle.setSprite(this.spriteProvider);
@@ -100,17 +101,17 @@ public class PassiveRoselDripParticle extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value=EnvType.CLIENT)
-	public static class DrippingPassiveRoselDripFactory implements ParticleFactory<DefaultParticleType> {
+	@Environment(value = EnvType.CLIENT)
+	public static class DrippingFollyRedPaintDropFactory implements ParticleFactory<DefaultParticleType> {
 		protected final SpriteProvider spriteProvider;
 
-		public DrippingPassiveRoselDripFactory(SpriteProvider spriteProvider) {
+		public DrippingFollyRedPaintDropFactory(SpriteProvider spriteProvider) {
 			this.spriteProvider = spriteProvider;
 		}
 
 		@Override
 		public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
-			Dripping dripping = new Dripping(clientWorld, d, e, f, Fluids.EMPTY, BlastClient.FALLING_FOLLY_RED_PAINT_DROP);
+			Dripping dripping = new Dripping(clientWorld, d, e, f, Fluids.EMPTY, RoselClient.FALLING_ROSEL_DROP);
 			dripping.gravityStrength *= 0.01f;
 			dripping.setMaxAge(100);
 			dripping.setColor(1f, 0f, 0.35f);
@@ -119,8 +120,8 @@ public class PassiveRoselDripParticle extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value=EnvType.CLIENT)
-	static class Dripping extends FollyRedPaintParticle {
+	@Environment(value = EnvType.CLIENT)
+	static class Dripping extends RoselDrip {
 		private final ParticleEffect nextParticle;
 
 		Dripping(ClientWorld world, double x, double y, double z, Fluid fluid, ParticleEffect nextParticle) {
@@ -146,7 +147,7 @@ public class PassiveRoselDripParticle extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value=EnvType.CLIENT)
+	@Environment(value = EnvType.CLIENT)
 	static class ContinuousFalling extends Falling {
 		protected final ParticleEffect nextParticle;
 
@@ -164,10 +165,10 @@ public class PassiveRoselDripParticle extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value=EnvType.CLIENT)
-	static class Falling extends PassiveRoselDripParticle {
+	@Environment(value = EnvType.CLIENT)
+	static class Falling extends RoselDrip {
 		Falling(ClientWorld clientWorld, double d, double e, double f, Fluid fluid) {
-			this(clientWorld, d, e, f, fluid, (int)(64.0 / (Math.random() * 0.8 + 0.2)));
+			this(clientWorld, d, e, f, fluid, (int) (64.0 / (Math.random() * 0.8 + 0.2)));
 		}
 
 		Falling(ClientWorld world, double x, double y, double z, Fluid fluid, int maxAge) {
@@ -183,14 +184,12 @@ public class PassiveRoselDripParticle extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value=EnvType.CLIENT)
-	static class Landing extends FollyRedPaintParticle {
+	@Environment(value = EnvType.CLIENT)
+	static class Landing extends RoselDrip {
 		Landing(ClientWorld clientWorld, double d, double e, double f, Fluid fluid) {
 			super(clientWorld, d, e, f, fluid);
-			this.maxAge = (int)(16.0 / (Math.random() * 0.8 + 0.2));
+			this.maxAge = (int) (16.0 / (Math.random() * 0.8 + 0.2));
 		}
 	}
 
 }
-
-*/

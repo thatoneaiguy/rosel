@@ -12,6 +12,6 @@ import xyz.amymialee.mialeemisc.util.MialeeText;
 
 public class RoselKapis extends BaseRoselWeapon {
 	public RoselKapis(QuiltItemSettings settings) {
-		super(ToolMaterials.NETHERITE, 3, -2.4F, settings);
+		super(ToolMaterials.NETHERITE, 8, -2.7F, settings);
 	}
 }

@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 
 public class Rosel implements ModInitializer {
 	public static final String MODID = "rosel";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
+	public static final Logger LOGGER = LoggerFactory.getLogger("Rosel");
 	private static <T extends
 		Entity> EntityType< T > registerEntityType(String name, SpawnGroup group, EntityType.EntityFactory < T > entityFactory,
 												   float width, float height){
@@ -39,15 +39,15 @@ public class Rosel implements ModInitializer {
 		RoselItems.register();
 		RoselItemGroup.register();
 		RoselBlocks.registerAll();
-		RoselBlockEntities.register();
+		// Block Entities
 		//Loot table modifiers
 		//Sounds
 		//Block Entities
-		RoselEntities.register();
+		//RoselEntities.register();
 		//Particles
 		//effects-|
 		//potions-|
-		RoselFluids.register();
+		// Fluid
 		//entity attributes registry
 
 		RoselMessages.registerC2S();
