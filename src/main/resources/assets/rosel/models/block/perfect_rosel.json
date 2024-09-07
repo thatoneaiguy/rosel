@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "rosel:block/rough_rosel"
+    "all": "rosel:block/perfect_rosel"
   }
 }

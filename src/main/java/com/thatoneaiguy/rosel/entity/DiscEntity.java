@@ -1,28 +1,7 @@
 	package com.thatoneaiguy.rosel.entity;
 
-	import com.thatoneaiguy.rosel.init.RoselEntities;
-	import com.thatoneaiguy.rosel.init.RoselItems;
-	import com.thatoneaiguy.rosel.item.DiscItem;
-	import net.minecraft.entity.Entity;
-	import net.minecraft.entity.EntityType;
-	import net.minecraft.entity.data.DataTracker;
-	import net.minecraft.entity.data.TrackedData;
-	import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-	import net.minecraft.entity.player.PlayerEntity;
-	import net.minecraft.entity.projectile.PersistentProjectileEntity;
-	import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
-	import net.minecraft.item.Item;
-	import net.minecraft.item.ItemStack;
-	import net.minecraft.item.Items;
-	import net.minecraft.server.network.ServerPlayerEntity;
-	import net.minecraft.sound.SoundEvents;
-	import net.minecraft.util.hit.EntityHitResult;
-	import net.minecraft.util.hit.HitResult;
-	import net.minecraft.util.math.Vec3d;
-	import net.minecraft.world.World;
-	import org.jetbrains.annotations.Nullable;
-
-	public class DiscEntity extends ThrownItemEntity {
+	/*
+public class DiscEntity extends ThrownItemEntity {
 	private static final TrackedData<Boolean> ENCHANTED = null;
 	private static final TrackedData<Integer> PLAYER_OWNER;
 	private ItemStack discStack;
@@ -108,7 +87,8 @@
 				comboChecker((PlayerEntity) this.getOwner());
 			}
 
-			/*if ( returning ) {
+			*/
+/*if ( returning ) {
 				this.getOwner();
 				Vec3d pos = this.getPos();
 				Vec3d towards;
@@ -125,11 +105,13 @@
 					Vec3d vec3d = owner.getEyePos().subtract(this.getPos()).normalize().multiply(speedToReturn);
 					this.setVelocity(this.getVelocity().multiply(0.75).add(vec3d));
 				}
-			}*/
+			}*//*
+
 
 		}
 
-		/*if (first) {
+		*/
+/*if (first) {
 			first = false;
 			new Thread(() -> {
 				try {
@@ -170,7 +152,11 @@
 		if (returning) {
 			Entity entity = this.getOwner();
 			if (!this.isOwnerAlive()) {
-				if (!this.world.isClient *//*&& this.pickupType == PickupPermission.ALLOWED*//*) {
+				if (!this.world.isClient *//*
+*/
+/*&& this.pickupType == PickupPermission.ALLOWED*//*
+*/
+/*) {
 					this.dropStack(discStack);
 				}
 			} else {
@@ -189,7 +175,8 @@
 				}
 				++this.returnTimer;
 			}
-		}*/
+		}*//*
+
 
 		super.tick();
 	}
@@ -255,4 +242,5 @@
 	static {
 		PLAYER_OWNER = DataTracker.registerData(DiscEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	}
-	}
+}
+*/

@@ -1,18 +1,13 @@
 package com.thatoneaiguy.rosel.item;
 
-import com.thatoneaiguy.rosel.entity.DiscEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import xyz.amymialee.mialeemisc.util.MialeeMath;
-import xyz.amymialee.mialeemisc.util.MialeeText;
 
-public class DiscItem extends BaseRoselItem {
+/*public class DiscItem extends BaseRoselItem {
 
 	public DiscItem(Settings settings) {
 		super(settings);
@@ -38,4 +33,4 @@ public class DiscItem extends BaseRoselItem {
 		return super.use(world, user, hand);
 	}
 
-}
+}*/

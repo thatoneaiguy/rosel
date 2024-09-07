@@ -1,7 +1,6 @@
 package com.thatoneaiguy.rosel.mixin;
 
 import com.thatoneaiguy.rosel.init.RoselBlocks;
-import com.thatoneaiguy.rosel.init.RoselFluids;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PointedDripstoneBlock;
 import net.minecraft.fluid.Fluid;
@@ -29,8 +28,7 @@ public abstract class PointedDripstoneMixin {
 		BlockState aboveState = world.getBlockState(abovePos);
 		if (aboveState.isOf(RoselBlocks.ROUGH_ROSEL)) {
 			if (random.nextFloat() < 0.02F) {
-				// Use the invoker method here
-				createParticle(world, pos, state, RoselFluids.STILL_PURE_ROSEL);
+				world.setBlockState(abovePos, RoselBlocks.PERFECT_ROSEL.getDefaultState());
 			}
 			ci.cancel();
 		}
@@ -50,9 +48,7 @@ public abstract class PointedDripstoneMixin {
 		double g = (double)pos.getZ() + 0.5 + vec3d.z;
 		ParticleEffect particleEffect;
 
-		if (fluid == RoselFluids.STILL_PURE_ROSEL) {
-			particleEffect = ParticleTypes.CLOUD;
-		} else if (fluid.isIn(FluidTags.LAVA)) {
+		if (fluid.isIn(FluidTags.LAVA)) {
 			particleEffect = ParticleTypes.DRIPPING_DRIPSTONE_LAVA;
 		} else if (fluid.isIn(FluidTags.WATER)) {
 			particleEffect = ParticleTypes.DRIPPING_DRIPSTONE_WATER;

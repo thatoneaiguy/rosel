@@ -7,6 +7,7 @@
 
   "block.rosel.perfect_rosel" : "Perfect Rosel",
   "block.rosel.rough_rosel" : "Rough Rosel",
+  "block.rosel.raw_rosel" : "Raw Rosel",
 
   "key.rosel.category.rosel" : "Rosel",
   "key.rosel.swap_arm": "Swap Arms"
