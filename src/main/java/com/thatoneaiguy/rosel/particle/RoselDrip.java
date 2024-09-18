@@ -77,7 +77,7 @@ public class RoselDrip extends SpriteBillboardParticle {
 		public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
 			Landing blockLeakParticle = new Landing(clientWorld, d, e, f, Fluids.EMPTY);
 			blockLeakParticle.setMaxAge((int) (28.0 / (Math.random() * 0.8 + 0.2)));
-			blockLeakParticle.setColor(1f, 0f, 0.35f);
+			blockLeakParticle.setColor(0.39f, 0.38f, 0.25f);
 			blockLeakParticle.setSprite(this.spriteProvider);
 			return blockLeakParticle;
 		}
@@ -95,7 +95,7 @@ public class RoselDrip extends SpriteBillboardParticle {
 		public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
 			ContinuousFalling blockLeakParticle = new ContinuousFalling(clientWorld, d, e, f, Fluids.EMPTY, RoselClient.LANDING_ROSEL_DROP);
 			blockLeakParticle.gravityStrength = 0.01f;
-			blockLeakParticle.setColor(1f, 0f, 0.35f);
+			blockLeakParticle.setColor(0.39f, 0.38f, 0.25f);
 			blockLeakParticle.setSprite(this.spriteProvider);
 			return blockLeakParticle;
 		}
@@ -114,7 +114,7 @@ public class RoselDrip extends SpriteBillboardParticle {
 			Dripping dripping = new Dripping(clientWorld, d, e, f, Fluids.EMPTY, RoselClient.FALLING_ROSEL_DROP);
 			dripping.gravityStrength *= 0.01f;
 			dripping.setMaxAge(100);
-			dripping.setColor(1f, 0f, 0.35f);
+			dripping.setColor(0.39f, 0.38f, 0.25f);
 			dripping.setSprite(this.spriteProvider);
 			return dripping;
 		}

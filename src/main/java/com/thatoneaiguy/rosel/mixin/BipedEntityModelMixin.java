@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At.Shift;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/*@Mixin(BipedEntityModel.class)
+@Mixin(BipedEntityModel.class)
 public abstract class BipedEntityModelMixin<T extends LivingEntity> extends AnimalModel<T> {
 
 	@Shadow
@@ -35,9 +35,9 @@ public abstract class BipedEntityModelMixin<T extends LivingEntity> extends Anim
 	public void poseArms(T entity, CallbackInfo ci) {
 		float f;
 
-		//boolean twoHandedLeft = entity.getMainHandStack().getItem() == RoselItems.ROSEL_KAPIS;
+		boolean twoHandedLeft = entity.getMainHandStack().getItem() == RoselItems.ROSEL_KAPIS;
 
-		//boolean twoHandedRight = entity.getOffHandStack().getItem() == RoselItems.ROSEL_KAPIS;
+		boolean twoHandedRight = entity.getOffHandStack().getItem() == RoselItems.ROSEL_KAPIS;
 
 		if (twoHandedLeft) {
 
@@ -90,4 +90,4 @@ public abstract class BipedEntityModelMixin<T extends LivingEntity> extends Anim
 			ci.cancel();
 		}
 	}
-}*/
+}
