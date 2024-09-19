@@ -1,12 +1,14 @@
 package com.thatoneaiguy.rosel;
 
 import com.thatoneaiguy.rosel.event.KeyInputHandler;
+import com.thatoneaiguy.rosel.hud.KapisHudOverlay;
 import com.thatoneaiguy.rosel.networking.RoselMessages;
 import com.thatoneaiguy.rosel.particle.RoselDrip;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.util.ModelIdentifier;
@@ -37,6 +39,8 @@ public class RoselClient implements ClientModInitializer {
 		ParticleFactoryRegistry.getInstance().register(FALLING_ROSEL_DROP, RoselDrip.FallingFollyRedPaintDropFactory::new);
 		LANDING_ROSEL_DROP = Registry.register(Registry.PARTICLE_TYPE, "rosel:landing_rosel_drop", FabricParticleTypes.simple(true));
 		ParticleFactoryRegistry.getInstance().register(LANDING_ROSEL_DROP, RoselDrip.LandingFollyRedPaintDropFactory::new);
+
+		HudRenderCallback.EVENT.register(new KapisHudOverlay());
 	}
 }
 

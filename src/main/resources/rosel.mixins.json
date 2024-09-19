@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "LivingEntitiyMixin",
+    "PlayerEntityMixin",
     "PointedDripstoneMixin"
   ],
   "client": [
