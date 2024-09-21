@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rosel:perfect_rosel"
+    }
+  ],
+  "result": {
+    "id": "rosel:rosel_shard",
+    "count": 4
+  }
+}

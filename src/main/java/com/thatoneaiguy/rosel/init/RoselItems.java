@@ -2,7 +2,6 @@ package com.thatoneaiguy.rosel.init;
 
 import com.thatoneaiguy.rosel.Rosel;
 import com.thatoneaiguy.rosel.item.BaseRoselItem;
-import com.thatoneaiguy.rosel.item.RoselGauntletItem;
 import com.thatoneaiguy.rosel.item.RoselKapis;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;

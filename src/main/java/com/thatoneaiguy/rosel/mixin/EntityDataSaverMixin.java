@@ -1,18 +1,22 @@
 package com.thatoneaiguy.rosel.mixin;
 
 import com.thatoneaiguy.rosel.util.IEntityDataSaver;
+import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
-import org.spongepowered.asm.mixin.Intrinsic;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import javax.swing.text.html.parser.Entity;
 
+
+// replaced incorrect class import  -mal
 @Mixin(Entity.class)
 public abstract class EntityDataSaverMixin implements IEntityDataSaver {
+
+	@Unique
 	private NbtCompound persistentData;
 
 	@Override
@@ -24,7 +28,7 @@ public abstract class EntityDataSaverMixin implements IEntityDataSaver {
 	}
 
 	@Inject(method = "writeNbt", at = @At("HEAD"))
-	protected void rosel$writeNBT(NbtCompound nbt, CallbackInfoReturnable cir) {
+	protected void rosel$writeNBT(NbtCompound nbt, CallbackInfoReturnable<NbtCompound> cir) {
 		if ( persistentData != null ) {
 			nbt.put("rosel.kapis_hits", persistentData);
 		}

@@ -27,6 +27,14 @@ public class KeyInputHandler {
 				ClientPlayNetworking.send(RoselMessages.SWAP_ARMS_ID, PacketByteBufs.create());
 			}
 		});
+
+		/*
+		 * unless you're planning on having all of them break out and not work separately,
+		 * there's really no point in having each check registered separately
+		 *
+		 * no changes made due to uncertainty -mal
+		 *
+		 */
 		ClientTickEvents.END.register(client -> {
 			if (swapArmFeedback.isPressed()) {
 

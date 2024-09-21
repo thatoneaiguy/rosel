@@ -1,28 +1,15 @@
 package com.thatoneaiguy.rosel.item;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 import xyz.amymialee.mialeemisc.util.MialeeMath;
-
-import java.util.Arrays;
-import java.util.Objects;
 
 public class RoselGauntletItem extends BaseRoselWeapon {
 	public RoselGauntletItem(QuiltItemSettings settings) {

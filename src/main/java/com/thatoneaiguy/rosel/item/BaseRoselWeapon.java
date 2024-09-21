@@ -1,6 +1,5 @@
 package com.thatoneaiguy.rosel.item;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;

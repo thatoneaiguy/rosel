@@ -4,13 +4,15 @@
   "package": "com.thatoneaiguy.rosel.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "EntityDataSaverMixin",
     "LivingEntitiyMixin",
     "PlayerEntityMixin",
-    "EntityDataSaverMixin",
     "PointedDripstoneMixin"
   ],
   "client": [
-    "ItemRendererMixin"
+    "BipedEntityModelMixin",
+    "ItemRendererMixin",
+    "PlayerEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

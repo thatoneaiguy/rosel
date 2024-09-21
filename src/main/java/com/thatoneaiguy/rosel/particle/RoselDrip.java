@@ -1,9 +1,6 @@
 package com.thatoneaiguy.rosel.particle;
 
-import com.thatoneaiguy.rosel.Rosel;
 import com.thatoneaiguy.rosel.RoselClient;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.fluid.Fluid;
@@ -12,6 +9,9 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.math.BlockPos;
+import org.quiltmc.loader.api.minecraft.ClientOnly;
+
+// replaced deprecated environment annotations for the currently supported ones -mal
 
 public class RoselDrip extends SpriteBillboardParticle {
 	RoselDrip(ClientWorld world, double x, double y, double z, Fluid fluid) {
@@ -64,7 +64,7 @@ public class RoselDrip extends SpriteBillboardParticle {
 	protected void updateVelocity() {
 	}
 
-	@Environment(value = EnvType.CLIENT)
+	@ClientOnly
 	public static class LandingFollyRedPaintDropFactory
 		implements ParticleFactory<DefaultParticleType> {
 		protected final SpriteProvider spriteProvider;
@@ -83,7 +83,7 @@ public class RoselDrip extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value = EnvType.CLIENT)
+	@ClientOnly
 	public static class FallingFollyRedPaintDropFactory implements ParticleFactory<DefaultParticleType> {
 		protected final SpriteProvider spriteProvider;
 
@@ -101,7 +101,7 @@ public class RoselDrip extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value = EnvType.CLIENT)
+	@ClientOnly
 	public static class DrippingFollyRedPaintDropFactory implements ParticleFactory<DefaultParticleType> {
 		protected final SpriteProvider spriteProvider;
 
@@ -120,7 +120,7 @@ public class RoselDrip extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value = EnvType.CLIENT)
+	@ClientOnly
 	static class Dripping extends RoselDrip {
 		private final ParticleEffect nextParticle;
 
@@ -147,7 +147,7 @@ public class RoselDrip extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value = EnvType.CLIENT)
+	@ClientOnly
 	static class ContinuousFalling extends Falling {
 		protected final ParticleEffect nextParticle;
 
@@ -165,7 +165,7 @@ public class RoselDrip extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value = EnvType.CLIENT)
+	@ClientOnly
 	static class Falling extends RoselDrip {
 		Falling(ClientWorld clientWorld, double d, double e, double f, Fluid fluid) {
 			this(clientWorld, d, e, f, fluid, (int) (64.0 / (Math.random() * 0.8 + 0.2)));
@@ -184,7 +184,7 @@ public class RoselDrip extends SpriteBillboardParticle {
 		}
 	}
 
-	@Environment(value = EnvType.CLIENT)
+	@ClientOnly
 	static class Landing extends RoselDrip {
 		Landing(ClientWorld clientWorld, double d, double e, double f, Fluid fluid) {
 			super(clientWorld, d, e, f, fluid);
