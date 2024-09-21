@@ -1,6 +1,8 @@
 package com.thatoneaiguy.rosel.mixin;
 
 import com.thatoneaiguy.rosel.item.RoselKapis;
+import com.thatoneaiguy.rosel.util.IEntityDataSaver;
+import com.thatoneaiguy.rosel.util.KapisHelper;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,10 +17,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
-
-	@Unique
-	int attacks = 0;
-
 	@Unique
 	String lastTargetUUID;
 
@@ -31,11 +29,10 @@ public abstract class PlayerEntityMixin {
 			if ( target.getUuidAsString().equals(lastTargetUUID))  {
 				lastTargetUUID = target.getUuidAsString();
 
-				attacks++;
+				KapisHelper.addHits(((IEntityDataSaver) this), 1);
 
-				System.out.println(attacks);
 			} else {
-				attacks = 0;
+				KapisHelper.removeHits(((IEntityDataSaver) this), 7);
 			}
 		}
 	}

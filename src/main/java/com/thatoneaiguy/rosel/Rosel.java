@@ -14,6 +14,7 @@ import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.registry.Registry;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
+import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,9 +25,10 @@ public class Rosel implements ModInitializer {
 		Entity> EntityType< T > registerEntityType(String name, SpawnGroup group, EntityType.EntityFactory < T > entityFactory,
 												   float width, float height){
 		Identifier entityId = new Identifier(MODID, name);
-		FabricEntityTypeBuilder<T> entityTypeBuilder = FabricEntityTypeBuilder.create(group, entityFactory)
-			.dimensions(EntityDimensions.fixed(width, height))
-			.trackRangeBlocks(4).trackedUpdateRate(10);
+		QuiltEntityTypeBuilder<T> entityTypeBuilder = QuiltEntityTypeBuilder.create(group, entityFactory)
+			.setDimensions(EntityDimensions.fixed(width, height))
+			.maxBlockTrackingRange(4)
+			.trackingTickInterval(10);
 		return Registry.register(Registry.ENTITY_TYPE, entityId, entityTypeBuilder.build());
 	}
 

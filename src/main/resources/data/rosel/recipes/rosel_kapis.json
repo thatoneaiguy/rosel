@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ##",
+    "Rn#",
+    "NR "
+  ],
+  "key": {
+    "#": {
+      "item": "rosel:rosel_shard"
+    },
+    "R": {
+      "item": "rosel:perfect_rosel"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "N": {
+      "item": "minecraft:netherite_sword"
+    }
+  },
+  "result": {
+    "id": "rosel:rosel_kapis",
+    "count": 1
+  }
+}

@@ -40,7 +40,7 @@ public class RoselClient implements ClientModInitializer {
 		LANDING_ROSEL_DROP = Registry.register(Registry.PARTICLE_TYPE, "rosel:landing_rosel_drop", FabricParticleTypes.simple(true));
 		ParticleFactoryRegistry.getInstance().register(LANDING_ROSEL_DROP, RoselDrip.LandingFollyRedPaintDropFactory::new);
 
-		HudRenderCallback.EVENT.register(new KapisHudOverlay());
+		//HudRenderCallback.EVENT.register(new KapisHudOverlay());
 	}
 }
 

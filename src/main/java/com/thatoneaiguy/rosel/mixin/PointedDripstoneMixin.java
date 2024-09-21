@@ -40,7 +40,7 @@ public abstract class PointedDripstoneMixin {
 
 	// Override the createParticle method to use custom particles for RoselFluid
 	@Unique
-	public void createParticle(World world, BlockPos pos, BlockState state, Fluid fluid) {
+	public void createDripstoneParticle(World world, BlockPos pos, BlockState state, Fluid fluid) {
 		Vec3d vec3d = state.getModelOffset(world, pos);
 		double d = 0.0625;
 		double e = (double)pos.getX() + 0.5 + vec3d.x;

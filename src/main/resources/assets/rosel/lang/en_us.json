@@ -3,11 +3,13 @@
 
   "item.rosel.rosel_disc" : "Rosel Disc",
   "item.rosel.rosel_kapis" : "Rosel Kapis",
-  "item.rosel.rosel_gauntlet" : "Rosel Kraftvoller Treffer",
+  "item.rosel.rosel_gauntlet" : "Rosel Gauntlet",
 
   "block.rosel.perfect_rosel" : "Perfect Rosel",
   "block.rosel.rough_rosel" : "Rough Rosel",
   "block.rosel.raw_rosel" : "Raw Rosel",
+
+  "itemGroup.rosel.roselmain": "Rosel",
 
   "key.rosel.category.rosel" : "Rosel",
   "key.rosel.swap_arm": "Swap Arms"
