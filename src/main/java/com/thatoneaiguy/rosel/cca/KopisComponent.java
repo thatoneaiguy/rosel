@@ -8,11 +8,6 @@ public class KopisComponent implements AutoSyncedComponent, CommonTickingCompone
 	private int attacks = 0;
 
 	@Override
-	public void clientTick() {
-		CommonTickingComponent.super.clientTick();
-	}
-
-	@Override
 	public void tick() {
 
 	}
