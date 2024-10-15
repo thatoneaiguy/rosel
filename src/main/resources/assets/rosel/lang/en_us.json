@@ -2,7 +2,7 @@
   "item.rosel.rosel_shard" : "Rosel Shard",
 
   "item.rosel.rosel_disc" : "Rosel Disc",
-  "item.rosel.rosel_kapis" : "Rosel Kapis",
+  "item.rosel.rosel_kopis" : "Rosel Kopis",
   "item.rosel.rosel_gauntlet" : "Rosel Gauntlet",
 
   "block.rosel.perfect_rosel" : "Perfect Rosel",
@@ -11,6 +11,42 @@
 
   "itemGroup.rosel.roselmain": "Rosel",
 
+  "enchantment.rosel.lunge": "Lunge",
+  "enchantment.rosel.lunge.desc": "Rapidly jump towards the target with right click",
+
   "key.rosel.category.rosel" : "Rosel",
-  "key.rosel.swap_arm": "Swap Arms"
+  "key.rosel.swap_arm": "Swap Arms",
+
+  "rosel.midnightconfig.title":"Rosel",
+  "rosel.midnightconfig.general": "General",
+
+  "rosel.midnightconfig.coating_multiplier":"Rosel Coating Damage Multiplier",
+  "rosel.midnightconfig.coating_multiplier.tooltip":"Would not recommend changing this. \nFormula on modrinth under Config",
+
+  "rosel.midnightconfig.gauntlet":"Gauntlet Config",
+
+  "rosel.midnightconfig.ticks":"Parry Timing",
+  "rosel.midnightconfig.ticks.tooltip":"Dealt in ticks.\n20 Ticks = 1 Second",
+  "rosel.midnightconfig.parry_healing":"Parry Healing",
+  "rosel.midnightconfig.parry_healing.tooltip": "Dealt in health.\n20 Health = 1 Heart",
+  "rosel.midnightconfig.gauntlet_offhand":"Gauntlet allowed in offhand §4§l( BUGGY & UNBALANCED )",
+  "rosel.midnightconfig.gauntlet_offhand.tooltip": "§4§lBUGGY & UNBALANCED",
+
+  "rosel.midnightconfig.kopis":"Kopis Config",
+
+  "rosel.midnightconfig.lunge_cover":"Lunge Rosel Covering",
+  "rosel.midnightconfig.lunge_cover.tooltip": "Dealt in levels.\n10 Levels = Instant death",
+  "rosel.midnightconfig.lunge_cooldown":"Lunge Cooldown",
+  "rosel.midnightconfig.lunge_cooldown.tooltip": "Dealt in ticks.\n20 Ticks = 1 Second",
+
+  "rosel.midnightconfig.overcharge_cover":"Overcharge Rosel Covering",
+  "rosel.midnightconfig.overcharge_cover.tooltip": "Dealt in levels.\n10 Health = Instant Death",
+
+  "rosel.midnightconfig.particleTypes": "Lunge Particle §6§l( CLIENT )",
+  "rosel.midnightconfig.enum.ParticleTypes.LODESTONE":"Lodestone",
+  "rosel.midnightconfig.enum.ParticleTypes.VANILLA":"Vanilla",
+
+  "rosel.midnightconfig.comboBarLocation": "Combo Bar Location §6§l( CLIENT )",
+  "rosel.midnightconfig.enum.ComboBarLocation.CROSSHAIR":"Crosshair",
+  "rosel.midnightconfig.enum.ComboBarLocation.HOTBAR":"Hotbar"
 }

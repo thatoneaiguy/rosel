@@ -10,20 +10,20 @@ group = project.maven_group
 repositories {
 	mavenLocal()
 	maven { url 'https://maven.fabricmc.net/' }
-	maven { url 'https://repo.spongepowered.org/maven/' }
-	maven { url 'https://minecraft.curseforge.com/api/maven'}	// publishing
-	maven { url 'https://maven.shedaniel.me/' }	// cloth config
-	maven { url 'https://maven.terraformersmc.com/' }	// mod menu
-	maven { url 'https://jitpack.io' } // Gooping Time!
-	maven { url 'https://api.modrinth.com/maven' } //modrinth
-	maven { url 'https://masa.dy.fi/maven' }
-	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 	maven { url 'https://maven.willbl.dev/releases' }	// mialee misc
+	maven { url 'https://minecraft.curseforge.com/api/maven'}	// publishing
+	maven { url 'https://api.modrinth.com/maven' } //modrinth
+	maven { url 'https://maven.terraformersmc.com/' }	// mod menu
 	maven { url 'https://maven.jamieswhiteshirt.com/libs-release/'
 		content {
 			includeGroup 'com.jamieswhiteshirt'
 		}
 	}
+	maven { url 'https://maven.ladysnake.org/releases' } // cca
+	maven { url 'https://repo.spongepowered.org/maven/' }
+	maven { url 'https://maven.shedaniel.me/' }	// cloth config
+	maven { url 'https://masa.dy.fi/maven' }
+	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 	maven { url 'https://oss.sonatype.org/content/repositories/snapshots'
 		content {
 			includeGroup 'me.lucko'
@@ -38,7 +38,20 @@ dependencies {
 	modImplementation libs.quilt.loader
 	modImplementation libs.quilted.fabric.api
 	modImplementation include("xyz.amymialee:mialeemisc:${project.mialeemisc_version}")
+
 	modImplementation "com.terraformersmc:modmenu:4.1.2"
+
+	include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:2.3.0")
+
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}"
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cca_version}"
+
+	modImplementation include ("com.github.Arathain:LodestoneLib-Quilt:${project.lodestone_version}"){ transitive = false }
+
+	modImplementation include("io.github.ladysnake:satin:${project.satin_version}")
+	modImplementation include("maven.modrinth:midnightlib:$project.midnightlib_version")
+
 	implementation 'org.jetbrains:annotations:24.0.1'
 	implementation 'com.google.code.gson:gson:2.8.8'
 	implementation 'org.apache.httpcomponents:httpclient:4.5.13'
