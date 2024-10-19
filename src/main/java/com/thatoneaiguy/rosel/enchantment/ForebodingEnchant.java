@@ -5,16 +5,17 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Rarity;
 
-public class LungeEnchantment extends Enchantment {
+public class ForebodingEnchant extends Enchantment {
 
-	public LungeEnchantment() {
+	public ForebodingEnchant() {
 		super(Rarity.RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[] {EquipmentSlot.MAINHAND});
 	}
 
 	@Override
 	public boolean isAcceptableItem(ItemStack stack) {
-		return stack.isOf(RoselItems.ROSEL_KOPIS);
+		return stack.isOf(RoselItems.ROSEL_GAUNTLET);
 	}
 
 	@Override

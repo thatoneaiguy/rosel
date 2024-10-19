@@ -1,5 +1,6 @@
 package com.thatoneaiguy.rosel.mixin;
 
+import com.thatoneaiguy.rosel.RoselClient;
 import com.thatoneaiguy.rosel.init.RoselBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PointedDripstoneBlock;
@@ -53,7 +54,7 @@ public abstract class PointedDripstoneMixin {
 		} else if (fluid.isIn(FluidTags.WATER)) {
 			particleEffect = ParticleTypes.DRIPPING_DRIPSTONE_WATER;
 		} else {
-			particleEffect = ParticleTypes.CRIT;
+			particleEffect = RoselClient.DRIPPING_ROSEL_DROP;
 		}
 
 		world.addParticle(particleEffect, e, f, g, 0.0, 0.0, 0.0);

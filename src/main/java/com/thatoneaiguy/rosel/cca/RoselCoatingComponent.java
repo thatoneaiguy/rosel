@@ -1,15 +1,10 @@
 package com.thatoneaiguy.rosel.cca;
 
-import com.sammy.lodestone.systems.rendering.particle.Easing;
-import com.sammy.lodestone.systems.rendering.particle.ParticleBuilders;
-import com.sammy.lodestone.systems.rendering.particle.SimpleParticleEffect;
 import com.thatoneaiguy.rosel.Rosel;
 import com.thatoneaiguy.rosel.RoselConfig;
 import com.thatoneaiguy.rosel.init.RoselDamageSources;
-import com.thatoneaiguy.rosel.init.RoselParticles;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
@@ -17,9 +12,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import org.jetbrains.annotations.NotNull;
 
 public class RoselCoatingComponent implements AutoSyncedComponent, CommonTickingComponent {
-	int level = 0;
 	private final PlayerEntity player;
-	private MinecraftClient client;
+	int level = 0;
 	int ticks = 1;
 	int delay = 0;
 
@@ -63,21 +57,27 @@ public class RoselCoatingComponent implements AutoSyncedComponent, CommonTicking
 
 	public int reset() {
 		level = 0;
+		Rosel.ROSEL_COATING_COMPONENT.sync(player);
 		return level;
 	}
 	@Override
 	public void tick() {
 		delay = 20 - level;
+		ticks++;
 
 		if ( ticks == delay ) {
 			if ( level != 10 ) {
+				delay = 20;
+				ticks = 0;
 				player.damage(RoselDamageSources.CRYSTALISED, level * RoselConfig.coating_multiplier);
 				if ( player.isDead() ) {
 					// Summon crystal entity
 				}
 			} else {
 				player.damage(RoselDamageSources.INSTAKILL, 10000);
-				// Summon crystal entity and kill
+				delay = 20;
+				ticks = 0;
+				level = 0;
 			}
 		}
 	}
@@ -111,10 +111,14 @@ public class RoselCoatingComponent implements AutoSyncedComponent, CommonTicking
 	@Override
 	public void readFromNbt(NbtCompound tag) {
 		this.level = tag.getInt("level");
+		this.ticks = tag.getInt("ticks");
+		this.delay = tag.getInt("delay");
 	}
 
 	@Override
 	public void writeToNbt(NbtCompound tag) {
 		tag.putInt("level", this.level);
+		tag.putInt("ticks", this.ticks);
+		tag.putInt("delay", this.delay);
 	}
 }

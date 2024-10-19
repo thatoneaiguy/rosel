@@ -1,7 +1,6 @@
 package com.thatoneaiguy.rosel;
 
 import com.thatoneaiguy.rosel.cca.RoselCoatingComponent;
-import com.thatoneaiguy.rosel.cca.RoselParryingComponent;
 import com.thatoneaiguy.rosel.init.*;
 import com.thatoneaiguy.rosel.networking.RoselMessages;
 import dev.onyxstudios.cca.api.v3.component.ComponentKey;
@@ -10,18 +9,15 @@ import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
 import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
 import eu.midnightdust.lib.config.MidnightConfig;
-import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
-import org.quiltmc.qsl.command.api.CommandRegistrationCallback;
 import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +56,7 @@ public class Rosel implements ModInitializer, EntityComponentInitializer {
 		RoselSounds.register();
 		//Block Entities
 		//RoselEntities.register();
-		RoselParticles.init();
+		RoselLodestoneParticles.init();
 		//effects-|
 		//potions-|
 		// Fluid

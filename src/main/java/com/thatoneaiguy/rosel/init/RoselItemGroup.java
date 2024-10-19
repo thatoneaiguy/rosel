@@ -15,7 +15,7 @@ public class RoselItemGroup {
 			.appendItems(stacks -> {
 				stacks.add(new ItemStack(RoselItems.ROSEL_KOPIS));
 				//stacks.add(new ItemStack(RoselItems.ROSEL_DISC));
-				//stacks.add(new ItemStack(RoselItems.ROSEL_GAUNTLET));
+				stacks.add(new ItemStack(RoselItems.ROSEL_GAUNTLET));
 				stacks.add(new ItemStack(RoselItems.ROSEL_SHARD));
 				stacks.add(new ItemStack(RoselBlocks.PERFECT_ROSEL));
 				stacks.add(new ItemStack(RoselBlocks.RAW_ROSEL));

@@ -17,9 +17,9 @@ public class KeyInputHandler {
 	public static final String KEY_SWAP_WHIPLASH = "key.rosel.whiplash";
 
 	public static KeyBind swapArmKey;
-	public static KeyBind swapArmFeedback;
-	public static KeyBind swapArmKnuckleblaster;
-	public static KeyBind swapArmWhiplash;
+	public static KeyBind swapArmDeflect;
+	public static KeyBind swapArmShockwave;
+	public static KeyBind swapArmConductor;
 
 	public static void registerInputs() {
 		ClientTickEvents.END.register(client -> {
@@ -28,18 +28,18 @@ public class KeyInputHandler {
 			}
 		});
 		ClientTickEvents.END.register(client -> {
-			if (swapArmFeedback.isPressed()) {
-
+			if (swapArmDeflect.isPressed()) {
+				ClientPlayNetworking.send(RoselMessages.SWAP_ARMS_DIRECT_DEFLECT, PacketByteBufs.create());
 			}
 		});
 		ClientTickEvents.END.register(client -> {
-			if (swapArmKnuckleblaster.isPressed()) {
-
+			if (swapArmShockwave.isPressed()) {
+				ClientPlayNetworking.send(RoselMessages.SWAP_ARMS_DIRECT_SHOCKWAVE, PacketByteBufs.create());
 			}
 		});
 		ClientTickEvents.END.register(client -> {
-			if (swapArmWhiplash.isPressed()) {
-
+			if (swapArmConductor.isPressed()) {
+				ClientPlayNetworking.send(RoselMessages.SWAP_ARMS_DIRECT_CONDUCTOR, PacketByteBufs.create());
 			}
 		});
 	}
@@ -48,22 +48,22 @@ public class KeyInputHandler {
 		swapArmKey = KeyBindingHelper.registerKeyBinding(new KeyBind(
 			KEY_SWAP_ARM,
 			InputUtil.Type.KEYSYM,
-			GLFW.GLFW_KEY_G,
+			GLFW.GLFW_KEY_Z,
 			KEY_CATEGORY_ROSEL
 		));
-		swapArmFeedback = KeyBindingHelper.registerKeyBinding(new KeyBind(
+		swapArmDeflect = KeyBindingHelper.registerKeyBinding(new KeyBind(
 			KEY_SWAP_FEEDBACK,
 			InputUtil.Type.KEYSYM,
 			GLFW.GLFW_KEY_UNKNOWN,
 			KEY_CATEGORY_ROSEL
 		));
-		swapArmKnuckleblaster = KeyBindingHelper.registerKeyBinding(new KeyBind(
+		swapArmShockwave = KeyBindingHelper.registerKeyBinding(new KeyBind(
 			KEY_SWAP_KNUCKLEBLASTER,
 			InputUtil.Type.KEYSYM,
 			GLFW.GLFW_KEY_UNKNOWN,
 			KEY_CATEGORY_ROSEL
 		));
-		swapArmWhiplash = KeyBindingHelper.registerKeyBinding(new KeyBind(
+		swapArmConductor = KeyBindingHelper.registerKeyBinding(new KeyBind(
 			KEY_SWAP_WHIPLASH,
 			InputUtil.Type.KEYSYM,
 			GLFW.GLFW_KEY_UNKNOWN,

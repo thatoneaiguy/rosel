@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import com.sammy.lodestone.network.screenshake.PositionedScreenshakePacket;
 import com.sammy.lodestone.systems.rendering.particle.Easing;
+import com.thatoneaiguy.rosel.RoselClient;
 import com.thatoneaiguy.rosel.RoselConfig;
 import com.thatoneaiguy.rosel.cca.RoselCoatingComponent;
 import com.thatoneaiguy.rosel.init.RoselEnchantments;
@@ -46,7 +47,7 @@ public class RoselKopis extends BaseRoselWeapon {
 	protected Entity lungeTarget;
 
 	public RoselKopis(QuiltItemSettings settings) {
-		super(ToolMaterials.NETHERITE, 2, -2.6F, settings);
+		super(new RoselToolMaterial(), 2, -2.6F, settings);
 
 		ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
 		builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", 1.2, EntityAttributeModifier.Operation.ADDITION));
@@ -72,7 +73,7 @@ public class RoselKopis extends BaseRoselWeapon {
 			}
 			Entity target = targeting.mialeeMisc$getLastTarget();
 
-			double range = 25.0;
+			double range = RoselConfig.lunge_distance;
 			Vec3d playerPos = user.getPos();
 			Vec3d playerLook = user.getRotationVec(1.0f);
 
@@ -122,13 +123,15 @@ public class RoselKopis extends BaseRoselWeapon {
 
 					RoselCoatingComponent.get(user).increment(RoselConfig.lunge_cover);
 
-					user.swingHand(hand);
+
 					return TypedActionResult.success(mainHandStack);
 				}
 			}
 		}
+		user.swingHand(hand);
 		return TypedActionResult.fail(mainHandStack);
 	}
+
 	/*
 	*
 	* 1.3 Attack Speed

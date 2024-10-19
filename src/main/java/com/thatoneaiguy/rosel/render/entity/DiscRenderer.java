@@ -1,4 +1,4 @@
-package com.thatoneaiguy.rosel.render;
+package com.thatoneaiguy.rosel.render.entity;
 
 /*
 @Environment(EnvType.CLIENT)

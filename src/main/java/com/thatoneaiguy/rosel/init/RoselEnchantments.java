@@ -1,7 +1,9 @@
 package com.thatoneaiguy.rosel.init;
 
 import com.thatoneaiguy.rosel.Rosel;
+import com.thatoneaiguy.rosel.enchantment.ForebodingEnchant;
 import com.thatoneaiguy.rosel.enchantment.LungeEnchantment;
+import com.thatoneaiguy.rosel.enchantment.OverchargeEnchantment;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -11,7 +13,11 @@ import java.util.Map;
 
 public interface RoselEnchantments {
 	Map<Enchantment, Identifier> ENCHANTMENTS = new LinkedHashMap();
+	// Kopis
 	Enchantment LUNGE = createEnchantment("lunge", new LungeEnchantment());
+	Enchantment OVERCHARGE = createEnchantment("overcharge", new OverchargeEnchantment());
+	// Gauntlet
+	Enchantment FOREBODING = createEnchantment("foreboding", new ForebodingEnchant());
 
 	static void register() {
 		ENCHANTMENTS.keySet().forEach((enchantment) -> {
