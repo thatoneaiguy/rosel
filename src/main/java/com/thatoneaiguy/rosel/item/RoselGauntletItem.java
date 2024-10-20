@@ -1,13 +1,21 @@
-package com.thatoneaiguy.rosel.item;
+ package com.thatoneaiguy.rosel.item;
 
+import com.sammy.lodestone.systems.rendering.particle.Easing;
+import com.sammy.lodestone.systems.rendering.particle.ParticleBuilders;
+import com.sammy.lodestone.systems.rendering.particle.SimpleParticleEffect;
+import com.thatoneaiguy.rosel.Rosel;
 import com.thatoneaiguy.rosel.RoselClient;
+import com.thatoneaiguy.rosel.RoselConfig;
 import com.thatoneaiguy.rosel.event.KeyInputHandler;
+import com.thatoneaiguy.rosel.init.RoselDamageSources;
+import com.thatoneaiguy.rosel.init.RoselLodestoneParticles;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
@@ -23,6 +31,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -30,17 +39,20 @@ import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 import xyz.amymialee.mialeemisc.util.MialeeMath;
 import xyz.amymialee.mialeemisc.util.MialeeText;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
-public class RoselGauntletItem extends BaseRoselWeapon {
+ public class RoselGauntletItem extends BaseRoselWeapon {
 	public static double mode = 0.1;
 
 	/*
 	* 1 = DEFLECT
 	* 2 = SHOCKWAVE
-	* 3 = ??? ( shocker )
+	* 3 = CONDUCTOR
 	*/
 
 
@@ -65,7 +77,8 @@ public class RoselGauntletItem extends BaseRoselWeapon {
 
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		if ( mode == 0.2 ) {
+		if ( mode == 0.1 ) {}
+		else if ( mode == 0.2 ) {
 			Vec3d savedVelocity = user.getVelocity();
 
 			double x = savedVelocity.getX();
@@ -74,8 +87,53 @@ public class RoselGauntletItem extends BaseRoselWeapon {
 
 
 		}
+		else if ( mode == 0.3 ) {
+			for (int i = 0; i < 4 * 20; i++) {
+				world.addParticle(RoselClient.SHOCKWAVE, user.getX(), user.getY(), user.getZ(), 0.0, 0.0, 0.0);
+
+				LivingEntity target = findClosestEntities(user, world, 4 /* we will change this to level as soon as we get that working */).get(0);
+
+				target.damage(RoselDamageSources.CONDUCTED, 2);
+				spawnParticleOnLIne(world, user.getPos(), target.getPos(), 20);
+				Rosel.ticks = 20;
+
+				findClosestEntities(user, world, 4).remove(0);
+			}
+		}
 
 		return super.use(world, user, hand);
+	}
+
+	public List<LivingEntity> findClosestEntities(PlayerEntity player, World world, int maxResults) {
+		Vec3d playerPos = player.getPos();
+
+		return world.getEntitiesByClass(LivingEntity.class, player.getBoundingBox().expand(50), entity -> entity != player).stream()
+			.sorted(Comparator.comparingDouble(entity -> entity.squaredDistanceTo(playerPos)))
+			.limit(maxResults)
+			.collect(Collectors.toList());
+	}
+
+	public void spawnParticleOnLIne(World world, Vec3d start, Vec3d end, int particleCount) {
+		Vec3d directionn = end.subtract(start).normalize();
+
+		for (int i = 0; i <= particleCount; i++) {
+			Vec3d particlePos = start.add(directionn.multiply(i / (double) particleCount));
+
+			if ( RoselConfig.particleTypes == RoselConfig.ParticleTypes.LODESTONE ) {
+				ParticleBuilders.create(RoselLodestoneParticles.ROSEL_BOLT)
+					.overrideAnimator(SimpleParticleEffect.Animator.WITH_AGE)
+					.setScale((.2f + world.random.nextFloat() / 3f))
+					.setSpinOffset(world.random.nextFloat() * 360f)
+					.setSpin((float) (world.random.nextGaussian() / 100f))
+					.setAlpha(0, 0.3f, 0)
+					.setAlphaEasing(Easing.QUINTIC_OUT)
+					.enableNoClip()
+					.setLifetime(5)
+					.spawn(world, particlePos.getX(), particlePos.getY(), particlePos.getZ());
+			} else {
+				world.addParticle(RoselClient.ROSEL_CROSS_V, particlePos.getX(), particlePos.getY(), particlePos.getZ(), 0.0, 0.0, 0.0);
+			}
+		}
 	}
 
 	@Override

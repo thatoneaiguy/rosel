@@ -20,7 +20,7 @@ public class ShockwaveParticle extends ExplosionLargeParticle {
 	public ShockwaveParticle(ClientWorld world, double x, double y, double z, double d, SpriteProvider spriteProvider) {
 		super(world, x, y, z, d, spriteProvider);
 		this.maxAge = 24;
-		this.scale = 20.0F;
+		this.scale = 20.0F; // is the scale this?
 		this.gravityStrength = 0.0F;
 		this.velocityX = 0.0;
 		this.velocityY = 0.0;
@@ -61,7 +61,7 @@ public class ShockwaveParticle extends ExplosionLargeParticle {
 		Quaternion quaternion = new Quaternion((Vec3f) Util.make(new Vec3f(1.0F, 1.0F, 1.0F), Vec3f::normalize), 0.0F, true);
 		rotator.accept(quaternion);
 		Vec3f[] vec3fs = new Vec3f[]{new Vec3f(-1.0F, -1.0F, 0.0F), new Vec3f(-1.0F, 1.0F, 0.0F), new Vec3f(1.0F, 1.0F, 0.0F), new Vec3f(1.0F, -1.0F, 0.0F)};
-		float size = this.getSize(tickDelta);
+		float size = this.getSize(tickDelta / 2); // or is this the size?
 
 		int brightness;
 		for (brightness = 0; brightness < 4; ++brightness) {

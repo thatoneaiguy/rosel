@@ -19,11 +19,13 @@ import net.minecraft.util.registry.Registry;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
+import org.quiltmc.qsl.lifecycle.api.event.ServerTickEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Rosel implements ModInitializer, EntityComponentInitializer {
 	public static final String MODID = "rosel";
+	public static int ticks = -1;
 
 
 	public static final Logger LOGGER = LoggerFactory.getLogger("Rosel");
@@ -68,6 +70,14 @@ public class Rosel implements ModInitializer, EntityComponentInitializer {
 		RoselMessages.registerC2S();
 
 		MidnightConfig.init("rosel", RoselConfig.class);
+
+		ServerTickEvents.END.register(server -> {
+			if ( ticks > 0 ) {
+				ticks--;
+			} else if ( ticks == 0 ) {
+				ticks= -1;
+			}
+		});
 	}
 
 	@Override
