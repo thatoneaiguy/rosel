@@ -80,6 +80,7 @@ public class RoselCoatingComponent implements AutoSyncedComponent, CommonTicking
 				level = 0;
 			}
 		}
+		this.sync();
 	}
 
 

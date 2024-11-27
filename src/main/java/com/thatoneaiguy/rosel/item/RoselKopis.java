@@ -3,15 +3,10 @@ package com.thatoneaiguy.rosel.item;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
-import com.sammy.lodestone.network.screenshake.PositionedScreenshakePacket;
-import com.sammy.lodestone.systems.rendering.particle.Easing;
-import com.thatoneaiguy.rosel.RoselClient;
 import com.thatoneaiguy.rosel.RoselConfig;
 import com.thatoneaiguy.rosel.cca.RoselCoatingComponent;
 import com.thatoneaiguy.rosel.init.RoselEnchantments;
-import com.thatoneaiguy.rosel.init.RoselItems;
 import com.thatoneaiguy.rosel.init.RoselSounds;
-import io.netty.buffer.Unpooled;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -19,20 +14,15 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolMaterials;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
-import org.quiltmc.qsl.networking.api.ServerPlayNetworking;
 import xyz.amymialee.mialeemisc.entities.IPlayerTargeting;
 
 import java.util.List;
@@ -40,18 +30,16 @@ import java.util.UUID;
 
 public class RoselKopis extends BaseRoselWeapon {
 	protected static final UUID ATTACK_REACH_MODIFIER_ID = UUID.fromString("76a8dee3-3e7e-4e11-ba46-a19b0c724567");
-	protected static final UUID REACH_MODIFIER_ID = UUID.fromString("a31c8afc-a716-425d-89cd-0d373380e6e7");
 	private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
 	protected boolean hasSearchedTarget;
 	protected Entity lungeTarget;
 
 	public RoselKopis(QuiltItemSettings settings) {
-		super(new RoselToolMaterial(), 2, -2.6F, settings);
+		super(new RoselToolMaterial(), 7, -2.6F, settings);
 
 		ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
-		builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", 1.2, EntityAttributeModifier.Operation.ADDITION));
-		builder.put(ReachEntityAttributes.REACH, new EntityAttributeModifier(REACH_MODIFIER_ID, "Weapon modifier", 2.4, EntityAttributeModifier.Operation.ADDITION));
+		builder.put(ReachEntityAttributes.ATTACK_RANGE, new EntityAttributeModifier(ATTACK_REACH_MODIFIER_ID, "Weapon modifier", .5f, EntityAttributeModifier.Operation.ADDITION));
 		this.attributeModifiers = builder.build();
 	}
 
@@ -132,24 +120,23 @@ public class RoselKopis extends BaseRoselWeapon {
 		return TypedActionResult.fail(mainHandStack);
 	}
 
-	/*
+	/**
 	*
 	* 1.3 Attack Speed
 	* 12 Attack Damage at MAX starts at 8
-	*
+
 	* Base:
 	* Reverse Berserk
 	* Means that the longer of a combo you have, the more dmg you do
 	* + 1 damage per hit
-	*
+
 	* OVERCHARGE
 	* Increase the cap of dmg from Reverse Berserk
 	* Holding it for too long will coat you in Rosel
 	* Max damage is 16
 	* The more you hit, the more your rosel coating happens
-	*
+
 	* LUNGE
 	* Select an entity, leap towards them, get covered in rosel the more you lunge
-	*
 	*/
 }

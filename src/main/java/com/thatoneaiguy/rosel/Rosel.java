@@ -3,6 +3,7 @@ package com.thatoneaiguy.rosel;
 import com.thatoneaiguy.rosel.cca.RoselCoatingComponent;
 import com.thatoneaiguy.rosel.init.*;
 import com.thatoneaiguy.rosel.networking.RoselMessages;
+import com.thatoneaiguy.rosel.util.FireworkParryHandler;
 import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
@@ -29,9 +30,10 @@ public class Rosel implements ModInitializer, EntityComponentInitializer {
 
 
 	public static final Logger LOGGER = LoggerFactory.getLogger("Rosel");
+
 	private static <T extends
-		Entity> EntityType< T > registerEntityType(String name, SpawnGroup group, EntityType.EntityFactory < T > entityFactory,
-												   float width, float height){
+		Entity> EntityType<T> registerEntityType(String name, SpawnGroup group, EntityType.EntityFactory<T> entityFactory,
+												 float width, float height) {
 		Identifier entityId = new Identifier(MODID, name);
 		QuiltEntityTypeBuilder<T> entityTypeBuilder = QuiltEntityTypeBuilder.create(group, entityFactory)
 			.setDimensions(EntityDimensions.fixed(width, height))
@@ -69,13 +71,15 @@ public class Rosel implements ModInitializer, EntityComponentInitializer {
 
 		RoselMessages.registerC2S();
 
+		FireworkParryHandler.register();
+
 		MidnightConfig.init("rosel", RoselConfig.class);
 
 		ServerTickEvents.END.register(server -> {
-			if ( ticks > 0 ) {
+			if (ticks > 0) {
 				ticks--;
-			} else if ( ticks == 0 ) {
-				ticks= -1;
+			} else if (ticks == 0) {
+				ticks = -1;
 			}
 		});
 	}
@@ -83,11 +87,9 @@ public class Rosel implements ModInitializer, EntityComponentInitializer {
 	@Override
 	public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
 		registry.beginRegistration(PlayerEntity.class, ROSEL_COATING_COMPONENT).respawnStrategy(RespawnCopyStrategy.NEVER_COPY).end(RoselCoatingComponent::new);
-		//registry.beginRegistration(PlayerEntity.class, ROSEL_PARRY_COMPONENT).respawnStrategy(RespawnCopyStrategy.NEVER_COPY).end(RoselParryingComponent::new);
 	}
 
 	public static Identifier id(String name) {
 		return new Identifier("rosel", name);
 	}
-
 }

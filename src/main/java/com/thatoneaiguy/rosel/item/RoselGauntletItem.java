@@ -1,50 +1,32 @@
  package com.thatoneaiguy.rosel.item;
 
-import com.sammy.lodestone.systems.rendering.particle.Easing;
-import com.sammy.lodestone.systems.rendering.particle.ParticleBuilders;
-import com.sammy.lodestone.systems.rendering.particle.SimpleParticleEffect;
-import com.thatoneaiguy.rosel.Rosel;
-import com.thatoneaiguy.rosel.RoselClient;
-import com.thatoneaiguy.rosel.RoselConfig;
-import com.thatoneaiguy.rosel.event.KeyInputHandler;
-import com.thatoneaiguy.rosel.init.RoselDamageSources;
-import com.thatoneaiguy.rosel.init.RoselLodestoneParticles;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BowItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterials;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
-import xyz.amymialee.mialeemisc.util.MialeeMath;
-import xyz.amymialee.mialeemisc.util.MialeeText;
+ import com.sammy.lodestone.systems.rendering.particle.Easing;
+ import com.sammy.lodestone.systems.rendering.particle.ParticleBuilders;
+ import com.sammy.lodestone.systems.rendering.particle.SimpleParticleEffect;
+ import com.thatoneaiguy.rosel.Rosel;
+ import com.thatoneaiguy.rosel.RoselClient;
+ import com.thatoneaiguy.rosel.RoselConfig;
+ import com.thatoneaiguy.rosel.event.KeyInputHandler;
+ import com.thatoneaiguy.rosel.init.RoselDamageSources;
+ import com.thatoneaiguy.rosel.init.RoselLodestoneParticles;
+ import net.minecraft.client.gui.screen.Screen;
+ import net.minecraft.client.item.TooltipContext;
+ import net.minecraft.entity.LivingEntity;
+ import net.minecraft.entity.player.PlayerEntity;
+ import net.minecraft.item.ItemStack;
+ import net.minecraft.item.ToolMaterials;
+ import net.minecraft.text.Text;
+ import net.minecraft.util.Formatting;
+ import net.minecraft.util.Hand;
+ import net.minecraft.util.TypedActionResult;
+ import net.minecraft.util.math.Vec3d;
+ import net.minecraft.world.World;
+ import org.jetbrains.annotations.Nullable;
+ import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
+ import java.util.Comparator;
+ import java.util.List;
+ import java.util.stream.Collectors;
 
  public class RoselGauntletItem extends BaseRoselWeapon {
 	public static double mode = 0.1;
@@ -89,15 +71,17 @@ import java.util.stream.Collectors;
 		}
 		else if ( mode == 0.3 ) {
 			for (int i = 0; i < 4 * 20; i++) {
-				world.addParticle(RoselClient.SHOCKWAVE, user.getX(), user.getY(), user.getZ(), 0.0, 0.0, 0.0);
+				if (Rosel.ticks != 0) {
+					int level = 0;
 
-				LivingEntity target = findClosestEntities(user, world, 4 /* we will change this to level as soon as we get that working */).get(0);
+					LivingEntity target = findClosestEntities(user, world, 4 /* we will change this to level as soon as we get that working */).get(level);
 
-				target.damage(RoselDamageSources.CONDUCTED, 2);
-				spawnParticleOnLIne(world, user.getPos(), target.getPos(), 20);
-				Rosel.ticks = 20;
+					target.damage(RoselDamageSources.CONDUCTED, 2);
+					spawnParticleOnLine(world, user.getPos(), target.getPos(), 20);
 
-				findClosestEntities(user, world, 4).remove(0);
+					Rosel.ticks = 20;
+					level++;
+				}
 			}
 		}
 
@@ -113,7 +97,7 @@ import java.util.stream.Collectors;
 			.collect(Collectors.toList());
 	}
 
-	public void spawnParticleOnLIne(World world, Vec3d start, Vec3d end, int particleCount) {
+	public void spawnParticleOnLine(World world, Vec3d start, Vec3d end, int particleCount) {
 		Vec3d directionn = end.subtract(start).normalize();
 
 		for (int i = 0; i <= particleCount; i++) {

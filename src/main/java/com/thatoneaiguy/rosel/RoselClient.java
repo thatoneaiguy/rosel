@@ -2,6 +2,7 @@ package com.thatoneaiguy.rosel;
 
 import com.thatoneaiguy.rosel.cca.KopisComponent;
 import com.thatoneaiguy.rosel.event.KeyInputHandler;
+import com.thatoneaiguy.rosel.hud.KopisHudOverlay;
 import com.thatoneaiguy.rosel.init.RoselItems;
 import com.thatoneaiguy.rosel.init.RoselLodestoneParticles;
 import com.thatoneaiguy.rosel.item.RoselGauntletItem;
@@ -12,6 +13,7 @@ import com.thatoneaiguy.rosel.particle.ShockwaveParticle;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.client.MinecraftClient;
@@ -95,61 +97,7 @@ public class RoselClient implements ClientModInitializer {
 			});
 		}));
 
-		//HudRenderCallback.EVENT.register(new KopisHudOverlay());
+		HudRenderCallback.EVENT.register(new KopisHudOverlay());
 	}
-
-	/*public static Identifier roselKopisHUDTextureSelecter() {
-		if ( client.player != null ) {
-			int attacks = KopisComponent.get(client.player).getLevel();
-
-			if ( attacks == 0 ) {
-				Identifier TEXTURE = new Identifier(Rosel.MODID,
-					"textures/hud/rosel_bar_01");
-				return TEXTURE;
-			}
-			else if ( attacks == 2 ) {
-				Identifier TEXTURE = new Identifier(Rosel.MODID,
-					"textures/hud/rosel_bar_02");
-				return TEXTURE;
-			}
-			else if ( attacks == 3 ) {
-				Identifier TEXTURE = new Identifier(Rosel.MODID,
-					"textures/hud/rosel_bar_03");
-				return TEXTURE;
-			}
-			else if ( attacks == 4 ) {
-				Identifier TEXTURE = new Identifier(Rosel.MODID,
-					"textures/hud/rosel_bar_04");
-				return TEXTURE;
-			}
-			else if ( attacks == 5 ) {
-				Identifier TEXTURE = new Identifier(Rosel.MODID,
-					"textures/hud/rosel_bar_05");
-				return TEXTURE;
-			}
-			else if ( attacks == 6 ) {
-				Identifier TEXTURE = new Identifier(Rosel.MODID,
-					"textures/hud/rosel_bar_06");
-				return TEXTURE;
-			}
-			else if ( attacks == 7 ) {
-				Identifier TEXTURE = new Identifier(Rosel.MODID,
-					"textures/hud/rosel_bar_07");
-				return TEXTURE;
-			}
-			else if ( attacks == 8 ) {
-				Identifier TEXTURE = new Identifier(Rosel.MODID,
-					"textures/hud/rosel_bar_08");
-				return TEXTURE;
-			}
-			else if ( attacks == 9 ) {
-				Identifier TEXTURE = new Identifier(Rosel.MODID,
-					"textures/hud/rosel_bar_09");
-				return TEXTURE;
-			}
-
-		}
-		return null;
-	}*/
 }
 
