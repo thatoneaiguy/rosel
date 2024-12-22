@@ -21,7 +21,6 @@ repositories {
 	}
 	maven { url 'https://maven.ladysnake.org/releases' } // cca
 	maven { url 'https://repo.spongepowered.org/maven/' }
-	maven { url 'https://maven.shedaniel.me/' }	// cloth config
 	maven { url 'https://masa.dy.fi/maven' }
 	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 	maven { url 'https://oss.sonatype.org/content/repositories/snapshots'

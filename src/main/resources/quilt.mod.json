@@ -6,16 +6,17 @@
 		"version": "${version}",
 		"metadata": {
 			"name": "discharged",
-			"description": "ULTRAKILL",
+			"description": "Vanilla+ Steampunk war machines",
 			"contributors": {
-				"thatoneaiguy": "Owner",
-				"Spirit": "Heavy Contributor",
-				"Pipobutter": "Artist",
-				"Pomlmao": "Artist & Ideas"
+				"eeverest": "Lead Developer",
+				"SpiritXIV": "Heavy Contributor",
+				"Winter_Arne": "Additional Help",
+				"pipobutter": "Artist",
+				"pomlmao": "Artist & Ideas"
 			},
 			"contact": {
 			},
-			"icon": "assets/rosel/icon.png"
+			"icon": "assets/discharged/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
@@ -41,7 +42,7 @@
 				"versions": "*"
 			}
 		]
-	},
+	}, intentional error - add the disc component
 	"cardinal-components": [
 		"discharged:rosel_coating",
 		"discharged:rosel_kopis"
