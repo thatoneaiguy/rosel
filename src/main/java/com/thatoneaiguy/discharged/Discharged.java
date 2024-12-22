@@ -1,7 +1,9 @@
 package com.thatoneaiguy.discharged;
 
+import com.thatoneaiguy.discharged.cca.DiscComponent;
 import com.thatoneaiguy.discharged.cca.KopisComponent;
 import com.thatoneaiguy.discharged.cca.RoselCoatingComponent;
+import com.thatoneaiguy.discharged.entity.DiscEntity;
 import com.thatoneaiguy.discharged.entity.RoselCrystalPlayerShapeEntity;
 import com.thatoneaiguy.discharged.init.*;
 import com.thatoneaiguy.discharged.item.RoselGauntletItem;
@@ -57,6 +59,8 @@ public class Discharged implements ModInitializer, EntityComponentInitializer {
 		ComponentRegistry.getOrCreate(id("rosel_coating"), RoselCoatingComponent.class);
 	public static final ComponentKey<KopisComponent> ROSEL_KOPIS_COMPENENT =
 		ComponentRegistry.getOrCreate(id("rosel_kopis"), KopisComponent.class);
+	public static final ComponentKey<DiscComponent> ROSEL_DISC_COMPONENT =
+		ComponentRegistry.getOrCreate(id("rosel_disc"), DiscComponent.class);
 	//public static final ComponentKey<RoselParryingComponent> ROSEL_PARRY_COMPONENT =
 	//	ComponentRegistry.getOrCreate(id("rosel_parry"), RoselParryingComponent.class);
 
@@ -112,6 +116,7 @@ public class Discharged implements ModInitializer, EntityComponentInitializer {
 	public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
 		registry.registerFor(PlayerEntity.class, ROSEL_COATING_COMPONENT, RoselCoatingComponent::new);
 		registry.registerFor(PlayerEntity.class, ROSEL_KOPIS_COMPENENT, KopisComponent::new);
+		registry.registerFor(DiscEntity.class, ROSEL_DISC_COMPONENT, DiscComponent::new);
 	}
 
 	private boolean onLivingEntityDamage(LivingEntity entity, DamageSource source, float amount) {

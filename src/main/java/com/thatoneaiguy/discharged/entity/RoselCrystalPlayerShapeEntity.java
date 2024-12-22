@@ -11,17 +11,19 @@ public class RoselCrystalPlayerShapeEntity extends HostileEntity {
 
 	public RoselCrystalPlayerShapeEntity(EntityType<? extends HostileEntity> entityType, World world) {
 		super(entityType, world);
-
 		this.dataTracker.set(alive, false);
 	}
 
 	@Override
-	public NbtCompound writeNbt(NbtCompound nbt) {
-		return super.writeNbt(nbt);
+	protected void initGoals() {
+
+
+		super.initGoals();
 	}
 
 	@Override
-	public void readNbt(NbtCompound nbt) {
-		super.readNbt(nbt);
-	}
+	public NbtCompound writeNbt(NbtCompound nbt) { return super.writeNbt(nbt); }
+
+	@Override
+	public void readNbt(NbtCompound nbt) { super.readNbt(nbt); }
 }

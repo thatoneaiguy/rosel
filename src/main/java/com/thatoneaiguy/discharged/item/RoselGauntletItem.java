@@ -101,16 +101,29 @@ public class RoselGauntletItem extends BaseRoselWeapon implements IAnimatable, I
 		return GauntletMode.values()[stack.getOrCreateNbt().getInt("Mode")];
 	}
 
-
 	public static Identifier getModeTexture(ItemStack stack) {
 		GauntletMode mode = GauntletMode.values()[stack.getOrCreateNbt().getInt("Mode")];
 		Identifier texture = new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_blue");
 
-		switch (mode) {
-			case DEFLECT -> new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_blue");
-			case SHOCKWAVE -> new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_red");
-			case CONDUCTOR ->  new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_yellow");
+		if ( mode == GauntletMode.DEFLECT ) {
+			texture = new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_blue");
+		} else if ( mode == GauntletMode.CONDUCTOR ) {
+			texture = new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_yellow");
+		} else if ( mode == GauntletMode.SHOCKWAVE ) {
+			texture = new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_red");
 		}
+
+//		switch (mode) {
+//			case DEFLECT:
+//				new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_blue");
+//				break;
+//			case SHOCKWAVE:
+//				new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_red");
+//				break;
+//			case CONDUCTOR:
+//				new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_yellow");
+//				break;
+//		}
 		return texture;
 	}
 

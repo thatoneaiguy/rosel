@@ -76,12 +76,8 @@ public class KopisComponent implements AutoSyncedComponent {
 		return attacks;
 	}
 	@Override
-	public void readFromNbt(NbtCompound tag) {
-
-	}
+	public void readFromNbt(NbtCompound tag) {}
 
 	@Override
-	public void writeToNbt(NbtCompound tag) {
-
-	}
+	public void writeToNbt(NbtCompound tag) {}
 }
