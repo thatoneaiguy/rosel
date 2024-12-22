@@ -8,7 +8,7 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class GauntletItemModel extends AnimatedGeoModel<RoselGauntletItem> {
 	private static final Identifier MODEL = new Identifier(Discharged.MODID, "geo/item/rosel_gauntlet_red-item.geo.json");
-	private static final Identifier DEFAULT_TEXTURE = new Identifier(Discharged.MODID, "textures/items/rosel_gauntlet_blue.png");
+	private static final Identifier DEFAULT_TEXTURE = new Identifier(Discharged.MODID, "textures/items/rosel_gauntlet_null.png");
 	private static final Identifier ANIMATION = new Identifier(Discharged.MODID, "animations/item/rat.animation.json");
 
 	@Override

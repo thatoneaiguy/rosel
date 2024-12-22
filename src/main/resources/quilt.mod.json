@@ -42,10 +42,11 @@
 				"versions": "*"
 			}
 		]
-	}, intentional error - add the disc component
+	},
 	"cardinal-components": [
 		"discharged:rosel_coating",
-		"discharged:rosel_kopis"
+		"discharged:rosel_kopis",
+		"discharged:rosel_disc"
 	],
 	"mixin": "discharged.mixins.json"
 }

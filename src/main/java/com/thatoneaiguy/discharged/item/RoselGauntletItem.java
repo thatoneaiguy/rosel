@@ -62,7 +62,6 @@ public class RoselGauntletItem extends BaseRoselWeapon implements IAnimatable, I
 				int ticksLeft = entry.getValue() - 1;
 				if (ticksLeft <= 0) {
 					iterator.remove(); // Remove the player when the effect expires
-					iterator.remove(); // Remove the player when the effect expires
 				} else {
 					entry.setValue(ticksLeft); // Decrement the tick count
 				}
@@ -92,9 +91,17 @@ public class RoselGauntletItem extends BaseRoselWeapon implements IAnimatable, I
 	}
 
 	public void toggleMode(ItemStack stack) {
+		if ( currentMode == GauntletMode.DEFLECT ) currentMode = GauntletMode.SHOCKWAVE;
+		else if ( currentMode == GauntletMode.SHOCKWAVE) currentMode = GauntletMode.CONDUCTOR;
+		else if ( currentMode == GauntletMode.CONDUCTOR ) currentMode = GauntletMode.DEFLECT;
+
 		NbtCompound compound = stack.getOrCreateNbt();
-		int select = MialeeMath.clampLoop(compound.getInt("action"), 0, GauntletMode.values().length);
-		setMode(stack, select);
+
+		int mode = compound.getInt("Mode");
+
+		if ( mode == 0 ) compound.putInt("Mode", 1);
+		else if ( mode == 1 ) compound.putInt("Mode", 2);
+		else if ( mode == 2) compound.putInt("Mode", 0);
 	}
 
 	public GauntletMode getMode(ItemStack stack) {
@@ -102,15 +109,17 @@ public class RoselGauntletItem extends BaseRoselWeapon implements IAnimatable, I
 	}
 
 	public static Identifier getModeTexture(ItemStack stack) {
-		GauntletMode mode = GauntletMode.values()[stack.getOrCreateNbt().getInt("Mode")];
-		Identifier texture = new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_blue");
+		NbtCompound compound = stack.getOrCreateNbt();
+		int mode = compound.getInt("Mode");
 
-		if ( mode == GauntletMode.DEFLECT ) {
+		Identifier texture = new Identifier(Discharged.MODID, "textures/item/hg");
+
+		if ( mode == 0 ) {
 			texture = new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_blue");
-		} else if ( mode == GauntletMode.CONDUCTOR ) {
-			texture = new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_yellow");
-		} else if ( mode == GauntletMode.SHOCKWAVE ) {
+		} else if ( mode == 1 ) {
 			texture = new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_red");
+		} else if ( mode == 2 ) {
+			texture = new Identifier(Discharged.MODID, "textures/item/rosel_gauntlet_yellow");
 		}
 
 //		switch (mode) {

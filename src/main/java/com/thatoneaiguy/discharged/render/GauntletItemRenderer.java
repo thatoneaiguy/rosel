@@ -1,22 +1,16 @@
 package com.thatoneaiguy.discharged.render;
 
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.thatoneaiguy.discharged.item.RoselGauntletItem;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.item.BuiltinModelItemRenderer;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.BakedModelManager;
-import net.minecraft.client.render.model.json.ModelTransformation;
-import net.minecraft.client.texture.TextureManager;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import software.bernie.geckolib3.geo.render.built.GeoBone;
 import software.bernie.geckolib3.geo.render.built.GeoModel;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
 import software.bernie.geckolib3.renderers.geo.GeoItemRenderer;
 
 public class GauntletItemRenderer extends GeoItemRenderer<RoselGauntletItem> {
@@ -25,6 +19,24 @@ public class GauntletItemRenderer extends GeoItemRenderer<RoselGauntletItem> {
 	public GauntletItemRenderer() {
 		super(new GauntletItemModel());
 	}
+
+	/*@Override
+	public void renderRecursively(GeoBone bone, MatrixStack matrices, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		ItemStack stack = this.currentItemStack;
+
+		GeoModel model = this.modelProvider.getModel(this.modelProvider.getModelResource(animatable));
+		matrices.push();
+		matrices.translate(0.5f, 0.51f, 0.5f);
+
+		Identifier gauntletTexture = RoselGauntletItem.getModeTexture(stack);
+
+		currentTexture.set(gauntletTexture);
+
+		MinecraftClient.getInstance().getTextureManager().bindTexture(gauntletTexture);
+		RenderLayer renderLayer = RenderLayer.getEntityCutout(gauntletTexture);
+
+		super.renderRecursively(bone, matrices, buffer, packedLight, packedOverlay, red, green, blue, alpha);
+	}*/
 
 	@Override
 	public void render(RoselGauntletItem animatable, MatrixStack matrices, VertexConsumerProvider bufferSource, int packedLight, ItemStack stack) {
