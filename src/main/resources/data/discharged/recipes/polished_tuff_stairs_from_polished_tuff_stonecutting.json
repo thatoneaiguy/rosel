@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "copperandtuffbackport:polished_tuff"
+  },
+  "result": "copperandtuffbackport:polished_tuff_stairs"
+}

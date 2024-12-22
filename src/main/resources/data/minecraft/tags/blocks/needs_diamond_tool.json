@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "rosel:perfect_rosel",
-    "rosel:rough_rosel",
-    "rosel:raw_rosel"
+    "discharged:perfect_rosel",
+    "discharged:rough_rosel",
+    "discharged:raw_rosel"
   ]
 }

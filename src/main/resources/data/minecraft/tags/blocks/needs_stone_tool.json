@@ -1,0 +1,54 @@
+{
+  "replace": false,
+  "values": [
+    "discharged:copper_grate",
+    "discharged:lightly_weathered_copper_grate",
+    "discharged:weathered_copper_grate",
+    "discharged:oxidised_copper_grate",
+
+    "discharged:waxed_copper_grate",
+    "discharged:waxed_lightly_weathered_copper_grate",
+    "discharged:waxed_weathered_copper_grate",
+    "discharged:waxed_oxidised_copper_grate",
+
+    "discharged:chiseled_copper",
+    "discharged:lightly_weathered_chiseled_copper",
+    "discharged:weathered_chiseled_copper",
+    "discharged:oxidised_chiseled_copper",
+
+    "discharged:waxed_chiseled_copper",
+    "discharged:waxed_lightly_weathered_chiseled_copper",
+    "discharged:waxed_weathered_chiseled_copper",
+    "discharged:waxed_oxidised_chiseled_copper",
+
+    "discharged:copper_bulb",
+    "discharged:lightly_weathered_copper_bulb",
+    "discharged:weathered_copper_bulb",
+    "discharged:oxidised_copper_bulb",
+
+    "discharged:waxed_copper_bulb",
+    "discharged:waxed_lightly_weathered_copper_bulb",
+    "discharged:waxed_weathered_copper_bulb",
+    "discharged:waxed_oxidised_copper_bulb",
+
+    "discharged:copper_door",
+    "discharged:lightly_weathered_copper_door",
+    "discharged:weathered_copper_door",
+    "discharged:oxidized_copper_door",
+
+    "discharged:waxed_copper_door",
+    "discharged:waxed_lightly_weathered_copper_door",
+    "discharged:waxed_weathered_copper_door",
+    "discharged:waxed_oxidized_copper_door",
+
+    "discharged:copper_trapdoor",
+    "discharged:lightly_weathered_copper_trapdoor",
+    "discharged:weathered_copper_trapdoor",
+    "discharged:oxidized_copper_trapdoor",
+
+    "discharged:waxed_copper_trapdoor",
+    "discharged:waxed_lightly_weathered_copper_trapdoor",
+    "discharged:waxed_weathered_copper_trapdoor",
+    "discharged:waxed_oxidized_copper_trapdoor"
+  ]
+}

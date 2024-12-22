@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "discharged:block/raw_discharged"
+    }
+  }
+}

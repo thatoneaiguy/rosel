@@ -1,0 +1,65 @@
+{
+  "item.discharged.rosel_shard" : "Rosel Shard",
+
+  "item.discharged.rosel_disc" : "Rosel Disc",
+  "item.discharged.rosel_kopis" : "Rosel Kopis",
+  "item.discharged.rosel_gauntlet" : "Rosel Gauntlet",
+
+  "block.discharged.perfect_rosel" : "Perfect Rosel",
+  "block.discharged.rough_rosel" : "Rough Rosel",
+  "block.discharged.raw_rosel" : "Raw Rosel",
+
+  "itemGroup.discharged.dischargedmain": "Discharged",
+
+  "enchantment.discharged.lunge": "Lunge",
+  "enchantment.discharged.lunge.desc": "Rapidly jump towards the target with right click",
+  "enchantment.discharged.overcharge": "Overcharge",
+  "enchantment.discharged.overcharge.desc": "Overcharge your discharged combo meter at the risk of your safety",
+  "enchantment.discharged.foreboding": "Foreboding",
+  "enchantment.discharged.foreboding.desc": "something i dont remember",
+
+  "key.discharged.category.discharged" : "Rosel",
+  "key.discharged.swap_arm": "Swap Arms",
+
+  "discharged.midnightconfig.title":"Discharged",
+  "discharged.midnightconfig.general": "General",
+
+  "discharged.midnightconfig.coating_multiplier":"Rosel Coating Damage Multiplier",
+  "discharged.midnightconfig.coating_multiplier.tooltip":"Would not recommend changing this. \nFormula on modrinth under Config",
+  "discharged.midnightconfig.particleTypes": "Particles §6§l( CLIENT )",
+  "discharged.midnightconfig.enum.ParticleTypes.LODESTONE":"Lodestone",
+  "discharged.midnightconfig.enum.ParticleTypes.VANILLA":"Vanilla",
+
+  "discharged.midnightconfig.gauntlet":"Gauntlet Config",
+
+  "discharged.midnightconfig.ticks":"Parry Timing",
+  "discharged.midnightconfig.ticks.tooltip":"Dealt in ticks.\n20 Ticks = 1 Second",
+
+  "discharged.midnightconfig.parry_healing":"Parry Healing",
+  "discharged.midnightconfig.parry_healing.tooltip": "Dealt in health.\n20 Health = 1 Heart",
+
+  "discharged.midnightconfig.gauntletKBType":"Gauntlet Knockback Type",
+  "discharged.midnightconfig.gauntletKBType.tooltip": "Directional - Direction you hit it KBs\nNormal - Increased KB\nNone - Regular KB",
+  "discharged.midnightconfig.enum.GauntletKBType.DIRECTIONAL":"Directional",
+  "discharged.midnightconfig.enum.GauntletKBType.NORMAL":"Normal",
+  "discharged.midnightconfig.enum.GauntletKBType.NONE":"None",
+
+  "discharged.midnightconfig.gauntlet_offhand":"Gauntlet allowed in offhand §4§l( BUGGY & UNBALANCED )",
+  "discharged.midnightconfig.gauntlet_offhand.tooltip": "§4§lBUGGY & UNBALANCED",
+
+  "discharged.midnightconfig.kopis":"Kopis Config",
+
+  "discharged.midnightconfig.lunge_cover":"Lunge Rosel Covering",
+  "discharged.midnightconfig.lunge_cover.tooltip": "Dealt in levels.\n10 Levels = Instant death",
+  "discharged.midnightconfig.lunge_cooldown":"Lunge Cooldown",
+  "discharged.midnightconfig.lunge_cooldown.tooltip": "Dealt in ticks.\n20 Ticks = 1 Second",
+  "discharged.midnightconfig.lunge_distance":"Lunge Distance",
+  "discharged.midnightconfig.lunge_distance.tooltip": "Dealt in blocks",
+
+  "discharged.midnightconfig.overcharge_cover":"Overcharge Rosel Covering",
+  "discharged.midnightconfig.overcharge_cover.tooltip": "Dealt in levels.\n10 Health = Instant Death",
+
+  "discharged.midnightconfig.comboBarLocation": "Combo Bar Location §6§l( CLIENT )",
+  "discharged.midnightconfig.enum.ComboBarLocation.CROSSHAIR":"Crosshair",
+  "discharged.midnightconfig.enum.ComboBarLocation.HOTBAR":"Hotbar"
+}

@@ -1,0 +1,23 @@
+{
+  "overrides": [
+    {
+      "predicate": {
+        "mode": 0.1
+      },
+      "model": "discharged:item/rosel_gauntlet_blue"
+    },
+    {
+      "predicate": {
+        "mode": 0.2
+      },
+      "model": "discharged:item/rosel_gauntlet_red"
+    },
+    {
+      "predicate": {
+        "mode": 0.3
+      },
+      "model": "discharged:item/rosel_gauntlet_yellow"
+    }
+  ]
+}
+

@@ -1,9 +1,0 @@
-{
-	"credit": "Made with Blockbench",
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "rosel:item/rosel_kopis_gui"
-	},
-	"gui_light": "front",
-	"display": {}
-}

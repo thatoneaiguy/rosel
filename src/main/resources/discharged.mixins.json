@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.thatoneaiguy.discharged.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "LivingEntitiyMixin",
+    "PlayerEntityMixin",
+    "PointedDripstoneMixin",
+    "ScreenHandlerMixin"
+  ],
+  "client": [
+    "InGameHudMixin",
+    "ItemRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

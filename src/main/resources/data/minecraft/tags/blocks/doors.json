@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "discharged:copper_door",
+    "discharged:lightly_weathered_copper_door",
+    "discharged:weathered_copper_door",
+    "discharged:oxidized_copper_door",
+    "discharged:waxed_copper_door",
+    "discharged:waxed_lightly_weathered_copper_door",
+    "discharged:waxed_weathered_copper_door",
+    "discharged:waxed_oxidized_copper_door"
+  ]
+}

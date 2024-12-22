@@ -2,15 +2,16 @@
 	"schema_version": 1,
 	"quilt_loader": {
 		"group": "com.thatoneaiguy",
-		"id": "rosel",
+		"id": "discharged",
 		"version": "${version}",
 		"metadata": {
-			"name": "rosel",
+			"name": "discharged",
 			"description": "ULTRAKILL",
 			"contributors": {
 				"thatoneaiguy": "Owner",
 				"Spirit": "Heavy Contributor",
-				"Pipobutter": "Artist"
+				"Pipobutter": "Artist",
+				"Pomlmao": "Artist & Ideas"
 			},
 			"contact": {
 			},
@@ -18,8 +19,9 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "com.thatoneaiguy.rosel.Rosel",
-			"client_init": "com.thatoneaiguy.rosel.RoselClient"
+			"init": "com.thatoneaiguy.discharged.Discharged",
+			"client_init": "com.thatoneaiguy.discharged.DischargedClient",
+			"cardinal-components": "com.thatoneaiguy.discharged.Discharged"
 		},
 		"depends": [
 			{
@@ -41,7 +43,8 @@
 		]
 	},
 	"cardinal-components": [
-		"rosel:rosel_coating"
+		"discharged:rosel_coating",
+		"discharged:rosel_kopis"
 	],
-	"mixin": "rosel.mixins.json"
+	"mixin": "discharged.mixins.json"
 }
