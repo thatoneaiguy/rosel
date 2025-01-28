@@ -10,7 +10,7 @@ import org.quiltmc.loader.api.minecraft.ClientOnly;
 
 import java.util.function.BiConsumer;
 
-public interface  DischargedLodestoneParticles {
+public interface DischargedLodestoneParticles {
 	LodestoneParticleType ROSEL_CROSS = new LodestoneParticleType();
 	LodestoneParticleType ROSEL_BOLT = new LodestoneParticleType();
 

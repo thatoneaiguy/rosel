@@ -1,4 +1,4 @@
-package com.thatoneaiguy.discharged.util;
+package com.thatoneaiguy.discharged.util.weapon;
 
 import org.quiltmc.loader.api.QuiltLoader;
 

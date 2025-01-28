@@ -1,4 +1,4 @@
-package com.thatoneaiguy.discharged.util;
+package com.thatoneaiguy.discharged.util.time;
 
 public interface DelayedAction {
 	void executeDelayedAction();

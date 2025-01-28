@@ -1,4 +1,4 @@
-package com.thatoneaiguy.discharged.util;
+package com.thatoneaiguy.discharged.util.time;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.server.MinecraftServer;

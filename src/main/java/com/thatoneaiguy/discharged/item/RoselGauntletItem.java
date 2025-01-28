@@ -37,9 +37,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.network.GeckoLibNetwork;
 import software.bernie.geckolib3.network.ISyncable;
 import software.bernie.geckolib3.util.GeckoLibUtil;
-import xyz.amymialee.mialeemisc.util.MialeeMath;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -344,7 +342,7 @@ public class RoselGauntletItem extends BaseRoselWeapon implements IAnimatable, I
 		for (int i = 0; i < particleCount; i++) {
 			Vec3d particlePos = start.add(direction.multiply(i * spacing));
 
-			if (DischargedConfig.particleTypes == DischargedConfig.ParticleTypes.LODESTONE) {
+			if (DischargedConfig.particleTypes == DischargedConfig.ParticleTypes.FANCY) {
 				ParticleBuilders.create(DischargedLodestoneParticles.ROSEL_BOLT)
 					.overrideAnimator(SimpleParticleEffect.Animator.WITH_AGE)
 					.setScale(0.2f + world.random.nextFloat() / 3f)

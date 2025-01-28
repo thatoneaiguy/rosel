@@ -6,6 +6,7 @@ import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 
 public class RoselCross extends SpriteBillboardParticle {
+	private float fsdjkifh;
 
 	public RoselCross(ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
 		super(clientWorld, d, e, f);
@@ -15,10 +16,15 @@ public class RoselCross extends SpriteBillboardParticle {
 		this.velocityY = h * 0.20000000298023224 + (Math.random() * 2.0 - 1.0) * 0.019999999552965164;
 		this.velocityZ = i * 0.20000000298023224 + (Math.random() * 2.0 - 1.0) * 0.019999999552965164;
 		this.maxAge = 1;
+		this.fsdjkifh = scale;
 	}
 
 	@Override
 	public void tick() {
+		for (double elapsed = 0; elapsed <= 100; elapsed += 0.1) {
+			this.scale = (float) easeInQuart(fsdjkifh, 0, elapsed, 100);
+		}
+
 		this.prevPosX = this.x;
 		this.prevPosY = this.y;
 		this.prevPosZ = this.z;
@@ -34,6 +40,16 @@ public class RoselCross extends SpriteBillboardParticle {
 				this.markDead();
 			}
 		}
+	}
+
+	public static double easeInQuart(double startValue, double endValue, double elapsed, double duration) {
+		if (elapsed < 0) elapsed = 0;
+		if (elapsed > duration) elapsed = duration;
+
+		double t = elapsed / duration;
+		double change = startValue - endValue;
+
+		return startValue - (change * (t * t * t * t));
 	}
 
 	@Override

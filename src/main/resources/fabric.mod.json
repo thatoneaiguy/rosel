@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "discharged",
+  "version": "${version}",
+  "name": "discharged",
+  "description": "Moderatly Mechanical Steampunk War Machines",
+  "authors": [
+    "eeverest"
+  ],
+  "contributors": [
+    "SpiritXIV",
+    "Winter_Arne",
+    "pipobutter",
+    "pomlmao"
+  ],
+
+  "custom": {
+    "modmenu": {
+      "parent": "koil",
+      "update_checker": true
+    }
+  },
+
+  "contact": {},
+  "license": "DONT STEAL MY SHIT (D.S.M.S)",
+  "icon": "assets/discharged/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.thatoneaiguy.Discharged"
+    ],
+    "client": [
+      "com.thatoneaiguy.DischargedClient"
+    ]
+  },
+  "mixins": [
+    "discharged.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

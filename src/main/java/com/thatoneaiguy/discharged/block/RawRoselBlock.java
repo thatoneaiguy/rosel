@@ -19,7 +19,6 @@ public class RawRoselBlock extends Block {
 		super.scheduledTick(state, world, pos, random);
 
 		if (world.getBlockState(pos.down()).getBlock() == Blocks.SOUL_CAMPFIRE) {
-			System.out.println("IM CUMMING");
 			world.setBlockState(pos, DischargedBlocks.ROUGH_ROSEL.getDefaultState());
 		}
 	}

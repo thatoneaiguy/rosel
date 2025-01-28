@@ -54,7 +54,6 @@ public abstract class InGameHudMixin extends DrawableHelper {
 			return;
 		}
 
-
 		boolean hasLunge = EnchantmentHelper.getLevel(DischargedEnchantments.LUNGE, mainHandStack) > 0;
 		if ( hasLunge ) {
 			for (int i = 0; i < 4; i++) {
@@ -62,7 +61,7 @@ public abstract class InGameHudMixin extends DrawableHelper {
 					target.getX() + (MathHelper.sin((target.age + tickDelta) * 0.75f + i * 45) * target.getWidth() * 1.2),
 					target.getBodyY(0.5f),
 					target.getZ() + (MathHelper.cos((target.age + tickDelta) * 0.75f + i * 45) * target.getWidth() * 1.2));
-				if (DischargedConfig.particleTypes == DischargedConfig.ParticleTypes.LODESTONE) {
+				if (DischargedConfig.particleTypes == DischargedConfig.ParticleTypes.FANCY) {
 					ParticleBuilders.create(DischargedLodestoneParticles.ROSEL_CROSS)
 						.overrideAnimator(SimpleParticleEffect.Animator.WITH_AGE)
 						.setScale((.2f + player.world.random.nextFloat() / 3f))

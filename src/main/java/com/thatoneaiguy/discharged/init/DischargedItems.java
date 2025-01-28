@@ -16,6 +16,8 @@ public class DischargedItems {
 	public static final Item ROSEL_KOPIS = registerItem("rosel_kopis", new RoselKopis(new QuiltItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
 	public static final Item ROSEL_GAUNTLET = registerItem("rosel_gauntlet", new RoselGauntletItem(new QuiltItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
 
+	public static final Item REALLY_FUCKING_SHITTY_COPPER = registerItem("really_fucking_shitty_copper", new Item(new QuiltItemSettings()));
+
 	public static final Item registerItem(String name, Item item) {
 		return Registry.register(Registry.ITEM, new Identifier(Discharged.MODID, name), item);
 	}

@@ -6,10 +6,13 @@ public class DischargedConfig extends MidnightConfig {
 	@Comment(centered = true) public static Comment general;
 	@Entry()
 	public static float coating_multiplier = 1;
+	@Entry()
+	public static float max_boiler_height = 7;
+
 	@Entry
-	public static ParticleTypes particleTypes = ParticleTypes.LODESTONE;
+	public static ParticleTypes particleTypes = ParticleTypes.FANCY;
 	public enum ParticleTypes {
-		LODESTONE, VANILLA
+		FANCY, VANILLA, NONE
 	}
 
 
@@ -20,9 +23,9 @@ public class DischargedConfig extends MidnightConfig {
 	@Entry(min = 1, max = 20)
 	public static int parry_healing = 4;
 	@Entry
-	public static GauntletKBType gauntletKBType = GauntletKBType.DIRECTIONAL;
+	public static GauntletKBType gauntletKBType = GauntletKBType.NORMAL;
 	public enum GauntletKBType {
-		DIRECTIONAL, NORMAL, NONE
+		DIRECTIONAL, NORMAL
 	}
 	@Entry()
 	public static boolean gauntlet_offhand = false;

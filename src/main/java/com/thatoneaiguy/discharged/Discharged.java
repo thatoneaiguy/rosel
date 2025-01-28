@@ -7,8 +7,6 @@ import com.thatoneaiguy.discharged.entity.DiscEntity;
 import com.thatoneaiguy.discharged.entity.RoselCrystalPlayerShapeEntity;
 import com.thatoneaiguy.discharged.init.*;
 import com.thatoneaiguy.discharged.item.RoselGauntletItem;
-import com.thatoneaiguy.discharged.networking.RoselMessages;
-import com.thatoneaiguy.discharged.util.FireworkParryHandler;
 import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
@@ -84,8 +82,6 @@ public class Discharged implements ModInitializer, EntityComponentInitializer {
 
 		DischargedEnchantments.register();
 		DischargedDamageSources.register();
-
-		FireworkParryHandler.register();
 
 		MidnightConfig.init("discharged", DischargedConfig.class);
 
